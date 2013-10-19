@@ -11,7 +11,8 @@
  *   - pageAddress: the html file path or url
  *   - width:       integer that represent the width of the window
  *   - height:      integer that represent the height of the window
- *   - decoration:  one of the following values: "..." (TODO)
+ *   - decoration:  if it is "UNDECORATED" the window will be undecorated (it will not have
+ *                  borders and the window buttons
  *
  * */
 int main(int argc, char *argv[])
@@ -34,7 +35,10 @@ int main(int argc, char *argv[])
     // set window width and height
     int     WINDOW_WIDTH    = QString(argv[2]).toInt();
     int     WINDOW_HEIGHT   = QString(argv[3]).toInt();
-    // TODO decoration
+
+    if (QString(argv[4]) == "UNDECORATED") {
+        view->setWindowFlags(Qt::FramelessWindowHint);
+    }
 
     // resize the window
     view->resize(WINDOW_WIDTH, WINDOW_HEIGHT);
