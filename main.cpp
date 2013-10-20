@@ -20,15 +20,78 @@
  *
  * */
 
+QWebView *webView;
+
 /*
  *  Javascript functions (Public API)
  * */
 class MyJavaScriptOperations : public QObject {
     Q_OBJECT
 public:
-    Q_INVOKABLE int sumOfNumbers(int a, int b) {
-        qDebug() << a + b;
-        return a + b;
+    /*
+     *  Close window
+     *  $API.closeWindow();
+     *
+     **/
+    Q_INVOKABLE void closeWindow () {
+        webView->close();
+    }
+
+    /*
+     *  Resize
+     *  $API.resize(width, height);
+     *
+     **/
+    Q_INVOKABLE void resize (int width, int height) {
+        webView->resize(width, height);
+    }
+
+    /*
+     *  Set window flags
+     *  $API.setWindowFlags (type)
+     *      - UNDECORATED
+     *
+     * */
+    Q_INVOKABLE void setWindowFlags (QString type) {
+
+        QStringList options;
+        options << "UNDECORATED";
+
+        switch (options.indexOf(type)) {
+            case 0:
+                webView->setWindowFlags(Qt::FramelessWindowHint);
+                break;
+            // TODO Other cases
+        }
+    }
+
+    /*
+     *  Set window state
+     *  $API.setWindowState (value)
+     *      - MAXIMIZED
+     *      - MINIMIZED
+     *      - FULLSCREEN
+     *      - ACTIVE
+     * */
+    Q_INVOKABLE void setWindowState (QString type) {
+
+        QStringList options;
+        options << "MAXIMIZED" << "MINIMIZED" << "FULLSCREEN" << "ACTIVATE";
+
+        switch (options.indexOf(type)) {
+            case 0:
+                webView->setWindowState(Qt::WindowMaximized);
+                break;
+            case 1:
+                webView->setWindowState(Qt::WindowMinimized);
+                break;
+            case 2:
+                webView->setWindowState(Qt::WindowFullScreen);
+                break;
+            case 3:
+                webView->setWindowState(Qt::WindowActive);
+                break;
+        }
     }
 };
 
@@ -39,6 +102,8 @@ int main(int argc, char *argv[])
 
     // build the web view
     QWebView *view = new QWebView();
+
+    webView = view;
 
     // get the html path
     QString HTML_PATH       = QString(argv[1]);
@@ -60,7 +125,7 @@ int main(int argc, char *argv[])
     }
 
     // add the public api functions
-    view->page()->mainFrame()->addToJavaScriptWindowObject("myOperations", new MyJavaScriptOperations);
+    view->page()->mainFrame()->addToJavaScriptWindowObject("$API", new MyJavaScriptOperations);
 
     // resize the window
     view->resize(WINDOW_WIDTH, WINDOW_HEIGHT);
