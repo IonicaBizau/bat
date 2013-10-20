@@ -3,6 +3,10 @@
 #include <QtWidgets>
 #include <QWebFrame>
 #include <QDir>
+#include <QApplication>
+#include <QDebug>
+#include <QWebPage>
+#include <QObject>
 
 /*
  *  Utility:
@@ -15,8 +19,22 @@
  *                  borders and the window buttons
  *
  * */
+
+/*
+ *  Javascript functions (Public API)
+ * */
+class MyJavaScriptOperations : public QObject {
+    Q_OBJECT
+public:
+    Q_INVOKABLE int sumOfNumbers(int a, int b) {
+        qDebug() << a + b;
+        return a + b;
+    }
+};
+
 int main(int argc, char *argv[])
 {
+
     QApplication app(argc, argv);
 
     // build the web view
@@ -36,9 +54,13 @@ int main(int argc, char *argv[])
     int     WINDOW_WIDTH    = QString(argv[2]).toInt();
     int     WINDOW_HEIGHT   = QString(argv[3]).toInt();
 
+    // handle "UNDECORATED" flag
     if (QString(argv[4]) == "UNDECORATED") {
         view->setWindowFlags(Qt::FramelessWindowHint);
     }
+
+    // add the public api functions
+    view->page()->mainFrame()->addToJavaScriptWindowObject("myOperations", new MyJavaScriptOperations);
 
     // resize the window
     view->resize(WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -51,3 +73,5 @@ int main(int argc, char *argv[])
 
     return app.exec();
 }
+
+#include "main.moc"
