@@ -24,12 +24,17 @@
                 color: #F5FFE0;
             }
         </style>
-        <script>
-            alert(myOperations.sumOfNumbers(2, 3));
-        </script>
     </head>
     <body>
         <div class="container">
+
+            <button onclick="$API.closeWindow()">Close window</button>
+            <button onclick="$API.resize(500, 500)">Resize 500x500</button>
+            <button onclick="$API.setWindowFlags('UNDECORATED')">Undecorate window</button>
+            <button onclick="$API.setWindowState('MAXIMIZED')">Maximize</button>
+            <button onclick="$API.setWindowState('MINIMIZED')">Minimize</button>
+            <button onclick="$API.setWindowState('FULLSCREEN')">Fullscreen</button>
+
             <h1>Test Application</h1>
             <p>This is a test application for the <a href="http://github.com/IonicaBizau/johnnys-webview" target="_blank">Johnny's web view</a> project.</p>
             <p><strong>Johnny's web view</strong> is an application written in C++ that loads a web page from the Internet or from the local machine.</p>
