@@ -1,0 +1,18 @@
+h1 {
+    font-size: 50px;
+    margin: 0;
+    text-shadow: 3px 3px rgb(83, 0, 0);
+}
+
+body {
+    background: #B41A1A;
+    color: #fff;
+    font-family: Arial;
+}
+
+p {
+    margin: 4px;
+    text-shadow: 2px 2px rgb(92, 0, 0);
+}
+
+a { color: #F5FFE0; }

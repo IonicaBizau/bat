@@ -3,37 +3,19 @@
     <head>
         <meta charset="utf-8">
         <style>
-           h1 {
-                font-size: 50px;
-                margin: 0;
-                text-shadow: 3px 3px rgb(83, 0, 0);
-            }
-
-            body {
-                background: #B41A1A;
-                color: #fff;
-                font-family: Arial;
-            }
-
-            p {
-                margin: 4px;
-                text-shadow: 2px 2px rgb(92, 0, 0);
-            }
-
-            a {
-                color: #F5FFE0;
-            }
+            @import url("./style.css");
         </style>
+        <script src="functions.js"></script>
     </head>
     <body>
         <div class="container">
 
-            <button onclick="$API.closeWindow()">Close window</button>
-            <button onclick="$API.resize(500, 500)">Resize 500x500</button>
-            <button onclick="$API.setWindowFlags('UNDECORATED')">Undecorate window</button>
-            <button onclick="$API.setWindowState('MAXIMIZED')">Maximize</button>
-            <button onclick="$API.setWindowState('MINIMIZED')">Minimize</button>
-            <button onclick="$API.setWindowState('FULLSCREEN')">Fullscreen</button>
+            <button class="api-test">Close window</button>
+            <button class="api-test">Resize 500x500</button>
+            <button class="api-test">Undecorate window</button>
+            <button class="api-test">Maximize</button>
+            <button class="api-test">Minimize</button>
+            <button class="api-test">Fullscreen</button>
 
             <h1>Test Application</h1>
             <p>This is a test application for the <a href="http://github.com/IonicaBizau/johnnys-webview" target="_blank">Johnny's web view</a> project.</p>
