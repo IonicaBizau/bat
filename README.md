@@ -41,6 +41,11 @@ The following functions are implemented for the Javascript API.
       <td>One of the following values: <code>MAXIMIZED</code>, <code>MINIMIZED</code>, <code>FULLSCREEN</code>, <code>ACTIVE</code></td>
       <td>Set window state</td>
     </tr>
+    <tr>
+      <td><code>$API.getWindowSize ()</code></td>
+      <td>No argumnets</td>
+      <td>Returns an object that contains <code>width</code> and <code>height</code> fields that represent the sizes of the window.</td>
+    </tr>
   </tbody>
 </table>
 

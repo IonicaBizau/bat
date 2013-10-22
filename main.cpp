@@ -94,6 +94,21 @@ public:
                 break;
         }
     }
+
+    /*
+     *  Get window size
+     *  $API.getWindowSize ()
+     * */
+    Q_INVOKABLE QObject *getWindowSize () {
+
+        QObject *size = new QObject();
+        QSize winSize = webView->size();
+
+        size->setProperty("width", winSize.width());
+        size->setProperty("height", winSize.height());
+
+        return size;
+    }
 };
 
 int main(int argc, char *argv[])
