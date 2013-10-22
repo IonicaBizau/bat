@@ -1,7 +1,7 @@
 Johnny's Webview
 ================
 
-A simple web pages loader as a desktop application.
+A simple web page loader as a desktop application.
 
 ## Implemented functions
 
@@ -16,11 +16,6 @@ The following functions are implemented for the Javascript API.
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td><code>$API.closeWindow()</code></td>
-      <td>No arguments</td>
-      <td>Close window</td>
-    </tr>
     <tr>
       <td><code>$API.closeWindow()</code></td>
       <td>No arguments</td>
