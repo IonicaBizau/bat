@@ -60,6 +60,7 @@ public:
         switch (options.indexOf(type)) {
             case 0:
                 webView->setWindowFlags(Qt::FramelessWindowHint);
+                webView->show();
                 break;
             // TODO Other cases
         }
