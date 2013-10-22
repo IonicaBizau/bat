@@ -109,6 +109,37 @@ public:
 
         return size;
     }
+
+    /*
+     *  Set window position
+     *  $API.setWindowPosition (left, top)
+     * */
+    Q_INVOKABLE void setWindowPosition (int left, int top) {
+        webView->move(left, top);
+    }
+
+    /*
+     *  Get window position
+     *  $API.getWindowPosition (left, top)
+     * */
+    Q_INVOKABLE QObject *getWindowPosition () {
+        QObject *position = new QObject();
+        QPoint point = webView->pos();
+
+        position->setProperty("left", point.x());
+        position->setProperty("top", point.y());
+
+        return position;
+    }
+
+    /*
+     *  Debug
+     *  $API.debug(message)
+     *
+     * */
+    Q_INVOKABLE void debug (QString message) {
+        qDebug() << message;
+    }
 };
 
 int main(int argc, char *argv[])
