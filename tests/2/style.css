@@ -1,42 +1,14 @@
+@import url("./window.css");
+
+body {
+    font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+}
+
 html, body {
-    height: 100%;
-    margin: 0;
+    background: transparent;
 }
 
-.window {
-    border: 2px solid black;
-    height: calc(100% - 4px);
-}
-
-.window .bar {
-    background: red;
-    color: white;
-    font-family: "Helvetica";
-    font-weight: bold;
-    padding: 2px 3px;
-}
-
-.window .bar .buttons .close:hover {
-    color: orange;
-    cursor: pointer;
-}
-
-.window .bar .title {
-    padding-left: 20px;
-}
-
-.window .body .content {
-    padding: 3px;
-}
-
-.window .body .resize {
-    position: absolute;
-    height: 20px;
-    width: 20px;
-    background: red;
-    bottom: 2px;
-    right: 2px;
-    cursor: se-resize;
+.unselectable {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -44,3 +16,4 @@ html, body {
     -ms-user-select: none;
     user-select: none;
 }
+

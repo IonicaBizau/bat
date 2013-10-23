@@ -28,7 +28,7 @@ $(document).ready(function () {
     /* drag */
     var initialPos = {};
     var drag = false;
-    $("#finder").on("mousedown", function (e) {
+    $(".bar").on("mousedown", function (e) {
         drag = true;
         initialPos.x = e.pageX;
         initialPos.y = e.pageY;

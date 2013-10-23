@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <script>
+            setInterval(function () {
+                var pos = $API.getMousePosition();
+                document.getElementById("mouse-pos").innerHTML = JSON.stringify(pos);
+            }, 100);
+        </script>
+        <h1 id="mouse-pos"></h1>
+    </body>
+</html>
