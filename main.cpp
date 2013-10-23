@@ -133,6 +133,21 @@ public:
     }
 
     /*
+     *  Get mouse position
+     *  $API.getMousePosition()
+     *
+     * */
+    Q_INVOKABLE QObject *getMousePosition () {
+        QObject *position = new QObject();
+        QPoint point = QCursor::pos();
+
+        position->setProperty("left", point.x());
+        position->setProperty("top", point.y());
+
+        return position;
+    }
+
+    /*
      *  Debug
      *  $API.debug(message)
      *
@@ -140,6 +155,8 @@ public:
     Q_INVOKABLE void debug (QString message) {
         qDebug() << message;
     }
+
+
 };
 
 int main(int argc, char *argv[])
@@ -169,6 +186,10 @@ int main(int argc, char *argv[])
     // handle "UNDECORATED" flag
     if (QString(argv[4]) == "UNDECORATED") {
         view->setWindowFlags(Qt::FramelessWindowHint);
+        QPalette palette = view->palette();
+        palette.setBrush(QPalette::Base, Qt::transparent);
+        view->page()->setPalette(palette);
+        view->setAttribute(Qt::WA_OpaquePaintEvent, false);
     }
 
     // add the public api functions
