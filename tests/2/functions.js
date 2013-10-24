@@ -1,7 +1,34 @@
 $(document).ready(function () {
+
+    if (typeof $API === "undefined") {
+        alert("Load this page into Johnny's Webview");
+        return;
+    }
+
     $(".close").on("click", $API.closeWindow);
+
+    var maximized = false;
+
     $(".maximize").on("click", function () {
-        $API.setWindowState("MAXIMIZED");
+        if (!maximized) {
+            $API.setWindowState("MAXIMIZED");
+            $(".window.finder").css({
+                left:   "0px",
+                top:    "0px",
+                bottom: "0px",
+                right:  "0px",
+            });
+            maximized = true;
+        } else {
+            $API.setWindowState("RESTORED");
+            maximized = false;
+            $(".window.finder").css({
+                left:   "90px",
+                top:    "90px",
+                bottom: "90px",
+                right:  "90px",
+            });
+        }
     });
 
     /* resize */
