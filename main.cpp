@@ -185,11 +185,14 @@ int main(int argc, char *argv[])
 
     // handle "UNDECORATED" flag
     if (QString(argv[4]) == "UNDECORATED") {
+
+        // set background transparent for webview
+        QPalette pal = view->palette();
+        pal.setBrush(QPalette::Base, Qt::transparent);
+        view->page()->setPalette(pal);
+        view->setAttribute(Qt::WA_TranslucentBackground);
+
         view->setWindowFlags(Qt::FramelessWindowHint);
-        QPalette palette = view->palette();
-        palette.setBrush(QPalette::Base, Qt::transparent);
-        view->page()->setPalette(palette);
-        view->setAttribute(Qt::WA_OpaquePaintEvent, false);
     }
 
     // add the public api functions
