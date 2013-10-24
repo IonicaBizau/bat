@@ -77,7 +77,7 @@ public:
     Q_INVOKABLE void setWindowState (QString type) {
 
         QStringList options;
-        options << "MAXIMIZED" << "MINIMIZED" << "FULLSCREEN" << "ACTIVATE";
+        options << "MAXIMIZED" << "MINIMIZED" << "FULLSCREEN" << "ACTIVATE" << "RESTORED";
 
         switch (options.indexOf(type)) {
             case 0:
@@ -91,6 +91,9 @@ public:
                 break;
             case 3:
                 webView->setWindowState(Qt::WindowActive);
+                break;
+            case 4:
+                webView->setWindowState(Qt::WindowNoState);
                 break;
         }
     }
