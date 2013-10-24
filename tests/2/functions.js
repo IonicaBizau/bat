@@ -1,5 +1,8 @@
 $(document).ready(function () {
     $(".close").on("click", $API.closeWindow);
+    $(".maximize").on("click", function () {
+        $API.setWindowState("MAXIMIZED");
+    });
 
     /* resize */
     var initial = {};
@@ -28,7 +31,7 @@ $(document).ready(function () {
     /* drag */
     var initialPos = {};
     var drag = false;
-    $("#finder").on("mousedown", function (e) {
+    $(".titleInside").on("mousedown", function (e) {
         drag = true;
         initialPos.x = e.pageX;
         initialPos.y = e.pageY;
