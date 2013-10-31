@@ -55,14 +55,17 @@ public:
     Q_INVOKABLE void setWindowFlags (QString type) {
 
         QStringList options;
-        options << "UNDECORATED";
+        options << "UNDECORATED" << "BOTTOM_MOST";
 
         switch (options.indexOf(type)) {
             case 0:
                 webView->setWindowFlags(Qt::FramelessWindowHint);
-                webView->show();
+                break;
+            case 1:
+                webView->setWindowFlags(Qt::WindowStaysOnBottomHint);
                 break;
             // TODO Other cases
+            webView->show();
         }
     }
 
@@ -188,14 +191,17 @@ int main(int argc, char *argv[])
 
     // handle "UNDECORATED" flag
     if (QString(argv[4]) == "UNDECORATED") {
-
         // set background transparent for webview
         QPalette pal = view->palette();
         pal.setBrush(QPalette::Base, Qt::transparent);
         view->page()->setPalette(pal);
         view->setAttribute(Qt::WA_TranslucentBackground);
 
-        view->setWindowFlags(Qt::FramelessWindowHint);
+        view->setWindowFlags(Qt::FramelessWindowHint | view->windowFlags());
+    }
+
+    if (QString(argv[5]) == "BOTTOM_MOST") {
+        view->setWindowFlags(Qt::WindowStaysOnBottomHint | view->windowFlags());
     }
 
     // add the public api functions
