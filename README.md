@@ -43,7 +43,7 @@ The following functions are implemented for the Javascript API.
         <code>MAXIMIZED</code>,
         <code>MINIMIZED</code>,
         <code>FULLSCREEN</code>,
-        <code>ACTIVE</code></td>,
+        <code>ACTIVE</code>,
         <code>RESTORED</code></td>
       <td>Sets the window state</td>
     </tr>
