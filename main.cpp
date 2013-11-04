@@ -10,7 +10,7 @@
 
 /*
  *  Utility:
- *  ./exectuable pageAddress width height decoration
+ *  ./exectuable pageAddress width height decoration (BOTTOM_MOST)
  *
  *   - pageAddress: the html file path or url
  *   - width:       integer that represent the width of the window
@@ -55,17 +55,22 @@ public:
     Q_INVOKABLE void setWindowFlags (QString type) {
 
         QStringList options;
-        options << "UNDECORATED" << "BOTTOM_MOST";
+        options << "UNDECORATED" << "BOTTOM_MOST" << "TOP_MOST";
 
         switch (options.indexOf(type)) {
             case 0:
-                webView->setWindowFlags(Qt::FramelessWindowHint);
+                webView->setWindowFlags(Qt::FramelessWindowHint | webView->windowFlags());
+                webView->show();
                 break;
             case 1:
-                webView->setWindowFlags(Qt::WindowStaysOnBottomHint);
+                webView->setWindowFlags(Qt::WindowStaysOnBottomHint | webView->windowFlags());
+                webView->show();
+                break;
+            case 2:
+                webView->setWindowFlags(Qt::WindowStaysOnTopHint | webView->windowFlags());
+                webView->show();
                 break;
             // TODO Other cases
-            webView->show();
         }
     }
 
@@ -202,6 +207,8 @@ int main(int argc, char *argv[])
 
     if (QString(argv[5]) == "BOTTOM_MOST") {
         view->setWindowFlags(Qt::WindowStaysOnBottomHint | view->windowFlags());
+    } else if (QString(argv[5]) == "TOP_MOST") {
+        view->setWindowFlags(Qt::WindowStaysOnTopHint    | view->windowFlags());
     }
 
     // add the public api functions
