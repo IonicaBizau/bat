@@ -1,12 +1,14 @@
 window.addEventListener("load", function () {
 
     var functions = [
-        function () { $API.closeWindow() },
-        function () { $API.resize(500, 500) },
-        function () { $API.setWindowFlags('UNDECORATED') },
-        function () { $API.setWindowState('MAXIMIZED') },
-        function () { $API.setWindowState('MINIMIZED') },
-        function () { $API.setWindowState('FULLSCREEN') }
+        function () { $API.debug("closeWindow");      $API.closeWindow() },
+        function () { $API.debug("resize: 500x500");  $API.resize(500, 500) },
+        function () { $API.debug("UNDECORATED");      $API.setWindowFlags('UNDECORATED')    },
+        function () { $API.debug("MAXIMIZED");        $API.setWindowState('MAXIMIZED')      },
+        function () { $API.debug("MINIMIZED");        $API.setWindowState('MINIMIZED')      },
+        function () { $API.debug("FULLSCREEN");       $API.setWindowState('FULLSCREEN')     },
+        function () { $API.debug("TOP_MOST");         $API.setWindowFlags('TOP_MOST')       },
+        function () { $API.debug("BOTTOM_MOST");      $API.setWindowFlags('BOTTOM_MOST')    }
     ];
 
     var tests = document.getElementsByClassName("api-test");
