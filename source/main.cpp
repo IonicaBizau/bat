@@ -167,7 +167,15 @@ public:
         qDebug() << message;
     }
 
-
+    /*
+     *  Run bash commands
+     *  $API.debug(command)
+     *
+     * */
+    Q_INVOKABLE void runBash (QString command) {
+        system(qPrintable(command));
+        // TODO return output (e.g for `ps aux`)
+    }
 };
 
 int main(int argc, char *argv[])

@@ -39,7 +39,7 @@ The following functions are implemented for the Javascript API.
     </tr>
     <tr>
       <td><code>$API.setWindowState (value)</code></td>
-      <td>One of the following values: 
+      <td>One of the following values:
         <code>MAXIMIZED</code>,
         <code>MINIMIZED</code>,
         <code>FULLSCREEN</code>,
@@ -71,6 +71,11 @@ The following functions are implemented for the Javascript API.
       <td><code>$API.debug (message)</code></td>
       <td><code>message</code>  - string that will be printed in the console</td>
       <td>Outputs a message in the terminal.</td>
+    </tr>
+    <tr>
+      <td><code>$API.runBash (command)</code></td>
+      <td><code>command</code> - string that represents the command that you want to run in the bash via Johnny's Web view.</td>
+      <td>Runs a bash command.</td>
     </tr>
   </tbody>
 </table>
