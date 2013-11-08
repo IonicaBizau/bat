@@ -77,6 +77,11 @@ The following functions are implemented for the Javascript API.
       <td><code>command</code> - string that represents the command that you want to run in the bash via Johnny's Web view.</td>
       <td>Runs a bash command.</td>
     </tr>
+    <tr>
+      <td><code>$API.getScreenSize ()</code></td>
+      <td>No arguments</td>
+      <td>Returns an object that contains <code>width</code> and <code>height</code> fields that represent the sizes of the screen.</td>
+    </tr>
   </tbody>
 </table>
 

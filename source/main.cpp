@@ -121,6 +121,23 @@ public:
         return size;
     }
 
+
+    /*
+     *  Get screen size
+     *  $API.getScreenSize ()
+     *
+     * */
+    Q_INVOKABLE QObject *getScreenSize () {
+
+        QObject *size = new QObject();
+        QSize screenSize = qApp->primaryScreen()->size();
+
+        size->setProperty("width", screenSize.width());
+        size->setProperty("height", screenSize.height());
+
+        return size;
+    }
+
     /*
      *  Set window position
      *  $API.setWindowPosition (left, top)
