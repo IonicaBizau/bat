@@ -22,3 +22,6 @@ Makefile
 # temp files
 *.swp
 *~
+
+# build directory
+build-JohnnysWebView-Desktop_Qt_5_1_1_GCC_32bit-Debug/
