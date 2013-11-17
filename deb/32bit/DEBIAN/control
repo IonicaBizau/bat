@@ -2,7 +2,7 @@ Package: johnnys-webview
 Version: 0.1.0
 Architecture: all
 Maintainer: Ionică Bizău <bizauionica@gmail.com>
-Depends: libqt4-network (>= 4:4.5.3), libqt4-opengl (>= 4:4.7.2), libqtcore4 (>= 4:4.8.0), libqtgui4 (>= 4:4.8.0), libqt5webkit5
+Depends:
 Section: extras
 Homepage: https://github.com/IonicaBizau/johnnys-webview
 Description: A simple web page loader as a desktop application.
