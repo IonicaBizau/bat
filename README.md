@@ -73,6 +73,11 @@ The following functions are implemented for the Javascript API.
       <td>Outputs a message in the terminal.</td>
     </tr>
     <tr>
+      <td><code>$API.setWindowTitle (newTitle)</code></td>
+      <td><code>newTitle</code> - string that represents the new title that you want to set to the window</td>
+      <td>Sets the new window title.</td>
+    </tr>
+    <tr>
       <td><code>$API.runBash (command)</code></td>
       <td><code>command</code> - string that represents the command that you want to run in the bash via Johnny's Web view.</td>
       <td>Runs a bash command.</td>

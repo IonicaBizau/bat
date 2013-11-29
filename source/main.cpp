@@ -7,6 +7,7 @@
 #include <QDebug>
 #include <QWebPage>
 #include <QObject>
+#include <QWindow>
 
 /*
  *  Utility:
@@ -173,6 +174,25 @@ public:
         position->setProperty("top", point.y());
 
         return position;
+    }
+
+    /*
+     *  Creates a new window
+     *  $API.newWindow(options);
+     * */
+    // TODO Is this really needed?
+    // Q_INVOKABLE void newWindow () {
+    //   QWindow newWindow = new QWindow();
+    //    newWindow.show();
+    // }
+
+    /*
+     *  Sets the title of the current window
+     *  $API.setWindowTitle(newTitle)
+     *
+     * */
+    Q_INVOKABLE void setWindowTitle (QString newTitle) {
+        webView->setWindowTitle(newTitle);
     }
 
     /*
