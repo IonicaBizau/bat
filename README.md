@@ -34,6 +34,9 @@ The following functions are implemented for the Javascript API.
         <code>UNDECORATED</code> - undecorates the window
         <code>BOTTOM_MOST</code> - puts the window on the background
         <code>TOP_MOST</code> - puts the window on the top
+        <code>REMOVE_MINIMIZE</code> - removes the minimize button
+        <code>REMOVE_MAXIMIZE</code> - removes the maximize button
+        <code>REMOVE_CLOSE</code> - removes the close button
       </td>
       <td>Sets the window flags</td>
     </tr>

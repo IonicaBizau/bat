@@ -1,14 +1,17 @@
 window.addEventListener("load", function () {
 
     var functions = [
-        function () { $API.debug("closeWindow");      $API.closeWindow() },
-        function () { $API.debug("resize: 500x500");  $API.resize(500, 500) },
-        function () { $API.debug("UNDECORATED");      $API.setWindowFlags('UNDECORATED')    },
-        function () { $API.debug("MAXIMIZED");        $API.setWindowState('MAXIMIZED')      },
-        function () { $API.debug("MINIMIZED");        $API.setWindowState('MINIMIZED')      },
-        function () { $API.debug("FULLSCREEN");       $API.setWindowState('FULLSCREEN')     },
-        function () { $API.debug("TOP_MOST");         $API.setWindowFlags('TOP_MOST')       },
-        function () { $API.debug("BOTTOM_MOST");      $API.setWindowFlags('BOTTOM_MOST')    }
+        function () { $API.debug("closeWindow");        $API.closeWindow() },
+        function () { $API.debug("resize: 500x500");    $API.resize(500, 500) },
+        function () { $API.debug("UNDECORATED");        $API.setWindowFlags('UNDECORATED')      },
+        function () { $API.debug("MAXIMIZED");          $API.setWindowState('MAXIMIZED')        },
+        function () { $API.debug("MINIMIZED");          $API.setWindowState('MINIMIZED')        },
+        function () { $API.debug("FULLSCREEN");         $API.setWindowState('FULLSCREEN')       },
+        function () { $API.debug("TOP_MOST");           $API.setWindowFlags('TOP_MOST')         },
+        function () { $API.debug("BOTTOM_MOST");        $API.setWindowFlags('BOTTOM_MOST')      },
+        function () { $API.debug("Removing close");     $API.setWindowFlags('REMOVE_CLOSE')     },
+        function () { $API.debug("Removing maximize");  $API.setWindowFlags('REMOVE_MAXIMIZE')  },
+        function () { $API.debug("Removing minimize");  $API.setWindowFlags('REMOVE_MINIMIZE')  },
     ];
 
     var tests = document.getElementsByClassName("api-test");

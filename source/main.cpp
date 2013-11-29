@@ -56,7 +56,12 @@ public:
     Q_INVOKABLE void setWindowFlags (QString type) {
 
         QStringList options;
-        options << "UNDECORATED" << "BOTTOM_MOST" << "TOP_MOST";
+        options << "UNDECORATED"
+                << "BOTTOM_MOST"
+                << "TOP_MOST"
+                << "REMOVE_MINIMIZE"
+                << "REMOVE_MAXIMIZE"
+                << "REMOVE_CLOSE";
 
         switch (options.indexOf(type)) {
             case 0:
@@ -69,6 +74,18 @@ public:
                 break;
             case 2:
                 webView->setWindowFlags(Qt::WindowStaysOnTopHint | webView->windowFlags());
+                webView->show();
+                break;
+            case 3:
+                webView->setWindowFlags(webView->windowFlags() & ~Qt::WindowMinimizeButtonHint);
+                webView->show();
+                break;
+            case 4:
+                webView->setWindowFlags(webView->windowFlags() & ~Qt::WindowMaximizeButtonHint);
+                webView->show();
+                break;
+            case 5:
+                webView->setWindowFlags(webView->windowFlags() & ~Qt::WindowCloseButtonHint);
                 webView->show();
                 break;
             // TODO Other cases
