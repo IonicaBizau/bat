@@ -31,12 +31,14 @@ The following functions are implemented for the Javascript API.
     <tr>
       <td><code>$API.setWindowFlags (type)</code></td>
       <td>
-        <code>UNDECORATED</code> - undecorates the window
-        <code>BOTTOM_MOST</code> - puts the window on the background
-        <code>TOP_MOST</code> - puts the window on the top
-        <code>REMOVE_MINIMIZE</code> - removes the minimize button
-        <code>REMOVE_MAXIMIZE</code> - removes the maximize button
-        <code>REMOVE_CLOSE</code> - removes the close button
+        <ul>
+          <li><code>UNDECORATED</code> - undecorates the window</li>
+          <li><code>BOTTOM_MOST</code> - puts the window on the background</li>
+          <li><code>TOP_MOST</code> - puts the window on the top</li>
+          <li><code>REMOVE_MINIMIZE</code> - removes the minimize button</li>
+          <li><code>REMOVE_MAXIMIZE</code> - removes the maximize button</li>
+          <li><code>REMOVE_CLOSE</code> - removes the close button</li>
+        </ul>
       </td>
       <td>Sets the window flags</td>
     </tr>
