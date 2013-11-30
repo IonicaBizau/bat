@@ -1,0 +1,14 @@
+th {
+  border-bottom: 1px dashed #b5e853;
+  border-right: 1px dashed #b5e853;
+}
+
+tr > th:last-child,
+tr > td:last-child {
+  border-right: none;
+}
+
+td {
+  border-right: 1px dashed #6E7E00;
+  border-bottom: 1px dashed #6E7E00;
+}
