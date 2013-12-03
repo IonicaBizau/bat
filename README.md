@@ -73,6 +73,13 @@ The following functions are implemented for the Javascript API.
       <td>Gets the mouse position on the screen.</td>
     </tr>
     <tr>
+      <td><code>$API.setMousePosition (x, y)</code></td>
+      <td>
+        <code>x</code> - the x coordinate of the mouse,
+        <code>y</code> - the y coordinate of the mouse</td>
+      <td>Sets the mouse position on the screen.</td>
+    </tr>
+    <tr>
       <td><code>$API.debug (message)</code></td>
       <td><code>message</code>  - string that will be printed in the console</td>
       <td>Outputs a message in the terminal.</td>

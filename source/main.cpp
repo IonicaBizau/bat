@@ -194,6 +194,15 @@ public:
     }
 
     /*
+     *  Set mouse position
+     *  $API.setMousePosition()
+     *
+     * */
+    Q_INVOKABLE void setMousePosition (int x, int y) {
+        QCursor::setPos(x, y);
+    }
+
+    /*
      *  Creates a new window
      *  $API.newWindow(options);
      * */
