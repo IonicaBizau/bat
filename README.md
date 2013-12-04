@@ -90,6 +90,11 @@ The following functions are implemented for the Javascript API.
       <td>Sets the new window title.</td>
     </tr>
     <tr>
+      <td><code>$API.inspectElement ()</code></td>
+      <td>No arguments</td>
+      <td>Opens the developer tools in the Johnny's Webview</td>
+    </tr>
+    <tr>
       <td><code>$API.runBash (command)</code></td>
       <td><code>command</code> - string that represents the command that you want to run in the bash via Johnny's Web view.</td>
       <td>Runs a bash command.</td>
