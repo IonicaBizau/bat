@@ -230,6 +230,16 @@ public:
         qDebug() << message;
     }
 
+
+    /*
+     *  Insepct element
+     *  $API.inspectElement()
+     *
+     * */
+    Q_INVOKABLE void inspectElement () {
+        webView->pageAction(QWebPage::InspectElement)->trigger();
+    }
+
     /*
      *  Run bash commands
      *  $API.debug(command)
@@ -274,6 +284,11 @@ int main(int argc, char *argv[])
         view->setAttribute(Qt::WA_TranslucentBackground);
 
         view->setWindowFlags(Qt::FramelessWindowHint | view->windowFlags());
+    }
+
+    QStringList appArgv = app.arguments();
+    if (appArgv.contains("--debug")) {
+        view->pageAction(QWebPage::InspectElement)->trigger();
     }
 
     if (QString(argv[5]) == "BOTTOM_MOST") {
