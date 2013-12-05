@@ -107,6 +107,20 @@ The following functions are implemented for the Javascript API.
   </tbody>
 </table>
 
+## How to hack?
+
+Do you want to contribute? Great! There are few steps to do this.
+
+ 1. Fork this repository in your account.
+ 2. Clone your (forked) repository on your computer.
+ 3. Make sure that you have Qt installed. If not, [download and install it](http://qt-project.org/downloads).
+ 4. Open the cloned project (from step 2) in Qt creator.
+ 5. Compile it.
+
+Now you are able to add new great features or to fix bugs! **Before** doing this create a branch with name `new-feature-[YOUR_FEATURE]` and also create tests.
+
+This helps to keep the repository organised.
+
 ## Licence
 
 See licence file.
