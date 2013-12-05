@@ -8,6 +8,7 @@
 #include <QWebPage>
 #include <QObject>
 #include <QWindow>
+#include <QWebInspector>
 
 /*
  *  Utility:
@@ -288,7 +289,13 @@ int main(int argc, char *argv[])
 
     QStringList appArgv = app.arguments();
     if (appArgv.contains("--debug")) {
-        view->pageAction(QWebPage::InspectElement)->trigger();
+
+        qDebug() << " * Debug mode.";
+        view->page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
+
+        QWebInspector inspector;
+        inspector.setPage(view->page());
+        inspector.setVisible(true);
     }
 
     if (QString(argv[5]) == "BOTTOM_MOST") {
