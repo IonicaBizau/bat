@@ -238,7 +238,11 @@ public:
      *
      * */
     Q_INVOKABLE void inspectElement () {
-        webView->pageAction(QWebPage::InspectElement)->trigger();
+        webView->page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
+
+        QWebInspector inspector;
+        inspector.setPage(webView->page());
+        inspector.setVisible(true);
     }
 
     /*
