@@ -4,4 +4,4 @@ echo "Compiling ..."
 qmake source/JohnnysWebView.pro
 
 # make file
-qmake -makefile source/ -o source/Makefile -d
+qmake -makefile source/ -o ./source/Makefile -d
