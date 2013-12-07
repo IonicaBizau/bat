@@ -13,6 +13,6 @@ qmake -makefile
 cd ..
 
 # TODO Should this made always?
-sudo cp source/JohnnysWebView /usr/bind/johnnys-webview
+sudo cp source/JohnnysWebView /usr/bin/johnnys-webview
 
 # TODO Generate deb packages and push them
