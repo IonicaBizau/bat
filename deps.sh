@@ -6,3 +6,6 @@ sudo apt-get install libqt5webkit5-dev
 
 # Project ERROR: Unknown module(s) in QT: quick location sensors
 sudo apt-get install qtquick1-5-dev qtlocation5-dev qtsensors5-dev qtdeclarative5-dev
+
+# /usr/bin/ld: cannot find -lsqlite3
+sudo apt-get install libsqlite3-dev
