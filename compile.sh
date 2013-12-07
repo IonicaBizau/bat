@@ -1,7 +1,18 @@
 echo "Compiling ..."
 
+# go to source directory
+cd source
+
 # qmake
-qmake source/JohnnysWebView.pro
+qmake JohnnysWebView.pro
 
 # make file
-qmake -makefile source/ -o ./source/Makefile -d
+qmake -makefile
+
+# go back to the main directory
+cd ..
+
+# TODO Should this made always?
+sudo cp source/JohnnysWebView /usr/bind/johnnys-webview
+
+# TODO Generate deb packages and push them
