@@ -23,6 +23,7 @@
  * */
 
 QWebView *webView;
+bool debugMode = false;
 
 /*
  *  Javascript functions (Public API)
@@ -36,6 +37,11 @@ public:
      *
      **/
     Q_INVOKABLE void closeWindow () {
+
+        if (debugMode) {
+            qDebug() << "[INFO] Closing window.";
+        }
+
         webView->close();
     }
 
@@ -45,6 +51,11 @@ public:
      *
      **/
     Q_INVOKABLE void resize (int width, int height) {
+
+        if (debugMode) {
+            qDebug() << "[INFO] Resizing window: width=" << width << "px; height=" << height << "px." ;
+        }
+
         webView->resize(width, height);
     }
 
@@ -55,6 +66,10 @@ public:
      *
      * */
     Q_INVOKABLE void setWindowFlags (QString type) {
+
+        if (debugMode) {
+            qDebug() << "[INFO] Setting window flag: " << type;
+        }
 
         QStringList options;
         options << "UNDECORATED"
@@ -103,6 +118,10 @@ public:
      * */
     Q_INVOKABLE void setWindowState (QString type) {
 
+        if (debugMode) {
+            qDebug() << "[INFO] Setting window state: " << type;
+        }
+
         QStringList options;
         options << "MAXIMIZED" << "MINIMIZED" << "FULLSCREEN" << "ACTIVATE" << "RESTORED";
 
@@ -131,6 +150,10 @@ public:
      * */
     Q_INVOKABLE QObject *getWindowSize () {
 
+        if (debugMode) {
+            qDebug() << "[INFO] Getting the window size.";
+        }
+
         QObject *size = new QObject();
         QSize winSize = webView->size();
 
@@ -148,6 +171,10 @@ public:
      * */
     Q_INVOKABLE QObject *getScreenSize () {
 
+        if (debugMode) {
+            qDebug() << "[INFO] Getting screen size.";
+        }
+
         QObject *size = new QObject();
         QSize screenSize = qApp->primaryScreen()->size();
 
@@ -162,6 +189,11 @@ public:
      *  $API.setWindowPosition (left, top)
      * */
     Q_INVOKABLE void setWindowPosition (int left, int top) {
+
+        if (debugMode) {
+            qDebug() << "[INFO] Setting the window position: left=" << left << "px; top=" << top << "px.";
+        }
+
         webView->move(left, top);
     }
 
@@ -170,6 +202,11 @@ public:
      *  $API.getWindowPosition (left, top)
      * */
     Q_INVOKABLE QObject *getWindowPosition () {
+
+        if (debugMode) {
+            qDebug() << "[INFO] Getting the window position.";
+        }
+
         QObject *position = new QObject();
         QPoint point = webView->pos();
 
@@ -185,6 +222,11 @@ public:
      *
      * */
     Q_INVOKABLE QObject *getMousePosition () {
+
+        if (debugMode) {
+            qDebug() << "[INFO] Getting the mouse position.";
+        }
+
         QObject *position = new QObject();
         QPoint point = QCursor::pos();
 
@@ -200,6 +242,11 @@ public:
      *
      * */
     Q_INVOKABLE void setMousePosition (int x, int y) {
+
+        if (debugMode) {
+            qDebug() << "[INFO] Setting the mouse position: x=" << x << "px; y=" << y << "px.";
+        }
+
         QCursor::setPos(x, y);
     }
 
@@ -219,6 +266,11 @@ public:
      *
      * */
     Q_INVOKABLE void setWindowTitle (QString newTitle) {
+
+        if (debugMode) {
+            qDebug() << "[INFO] Setting the window title: " << newTitle;
+        }
+
         webView->setWindowTitle(newTitle);
     }
 
@@ -228,6 +280,11 @@ public:
      *
      * */
     Q_INVOKABLE void debug (QString message) {
+
+        if (debugMode) {
+            qDebug() << "[INFO] Printing debug message: " << message;
+        }
+
         qDebug() << message;
     }
 
@@ -238,6 +295,11 @@ public:
      *
      * */
     Q_INVOKABLE void inspectElement () {
+
+        if (debugMode) {
+            qDebug() << "[INFO] Activating inspect element.";
+        }
+
         webView->page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
 
         QWebInspector inspector;
@@ -251,6 +313,11 @@ public:
      *
      * */
     Q_INVOKABLE void runBash (QString command) {
+
+        if (debugMode) {
+            qDebug() << "[INFO] Running bash command: " << command;
+        }
+
         system(qPrintable(command));
         // TODO return output (e.g for `ps aux`)
     }
@@ -295,6 +362,7 @@ int main(int argc, char *argv[])
     if (appArgv.contains("--debug")) {
 
         qDebug() << " * Debug mode.";
+        debugMode = true;
         view->page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
 
         QWebInspector inspector;
