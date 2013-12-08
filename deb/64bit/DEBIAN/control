@@ -1,0 +1,8 @@
+Package: johnnys-webview
+Version: 0.1.0
+Architecture: all
+Maintainer: Ionică Bizău <bizauionica@gmail.com>
+Depends:
+Section: extras
+Homepage: https://github.com/IonicaBizau/johnnys-webview
+Description: A simple web page loader as a desktop application.
