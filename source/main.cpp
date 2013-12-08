@@ -321,6 +321,34 @@ public:
         system(qPrintable(command));
         // TODO return output (e.g for `ps aux`)
     }
+
+    /*
+     *  Enable/Disable debug mode
+     *  $API.setDebugMode(true/false)
+     *
+     * */
+    Q_INVOKABLE void setDebugMode (bool debug) {
+
+        if (debugMode) {
+            qDebug() << "[INFO] Setting debug mode: " << debug;
+        }
+
+        debugMode = debug;
+    }
+
+    /*
+     *  Get debug mode
+     *  $API.getDebugMode(true/false)
+     *
+     * */
+    Q_INVOKABLE bool getDebugMode () {
+
+        if (debugMode) {
+            qDebug() << "[INFO] Getting debug mode.";
+        }
+
+        return debugMode;
+    }
 };
 
 int main(int argc, char *argv[])
