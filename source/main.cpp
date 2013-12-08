@@ -27,7 +27,7 @@ QWebView *webView;
 /*
  *  Javascript functions (Public API)
  * */
-class MyJavaScriptOperations : public QObject {
+class JohnnysWebviewJavaScriptOperations : public QObject {
     Q_OBJECT
 public:
     /*
@@ -309,7 +309,7 @@ int main(int argc, char *argv[])
     }
 
     // add the public api functions
-    view->page()->mainFrame()->addToJavaScriptWindowObject("$API", new MyJavaScriptOperations);
+    view->page()->mainFrame()->addToJavaScriptWindowObject("$API", new JohnnysWebviewJavaScriptOperations);
 
     // resize the window
     view->resize(WINDOW_WIDTH, WINDOW_HEIGHT);
