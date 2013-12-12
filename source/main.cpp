@@ -275,6 +275,28 @@ public:
     }
 
     /*
+     *  Writes content to file
+     *  $API.writeFile (path, content);
+     *
+     * */
+    Q_INVOKABLE void writeFile (QString path, QString content) {
+        if (debugMode) {
+            qDebug() << "[INFO] Writting to file: " << path;
+        }
+
+        QFile file(path);
+        if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+            if (debugMode) {
+                qDebug() << "[WARNING] Cannot write file.";
+            }
+            return;
+        }
+
+        QTextStream out(&file);
+        out << content;
+    }
+
+    /*
      *  Debug
      *  $API.debug(message)
      *
