@@ -15,9 +15,9 @@ cp ./deb/64bit/64-dev-release.deb ./releases/64bit-johnnys-webview-$DATE.deb
 # add
 git add ./releases
 git commit -m "Release build - $DATE"
-git push
+# git push
 
 # dev update
 git add ./deb
 git commit -m "Dev release - $DATE"
-git push
+# git push
