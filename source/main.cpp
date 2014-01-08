@@ -297,6 +297,32 @@ public:
     }
 
     /*
+     *  Returns the content content of a file
+     *  $API.readFile (path);
+     *
+     * */
+    Q_INVOKABLE QString readFile (QString path) {
+        if (debugMode) {
+            qDebug() << "[INFO] Reading from file: " << path;
+        }
+
+        QFile file(path);
+        if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            if (debugMode) {
+                qDebug() << "[WARNING] Cannot open file.";
+            }
+            return "";
+        }
+
+        QString fileContent = "";
+        QTextStream in(&file);
+
+        in >> fileContent;
+
+        return fileContent;
+    }
+
+    /*
      *  Debug
      *  $API.debug(message)
      *
@@ -437,6 +463,12 @@ int main(int argc, char *argv[])
 
     // show the web view
     view->show();
+
+    // if --exit was provided
+    if (appArgv.contains("--exit")) {
+        qDebug() << "Exiting...";
+        QApplication::quit();
+    }
 
     return app.exec();
 }
