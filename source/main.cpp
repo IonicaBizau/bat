@@ -413,7 +413,7 @@ int main(int argc, char *argv[])
     QString HTML_PATH       = QString(argv[1]);
 
     // the path is NOT a web site url
-    if (!HTML_PATH.startsWith("htt"))
+    if (!HTML_PATH.startsWith("http"))
     {
         // get it from the local machine
         HTML_PATH = "file://" + QDir::current().absolutePath() + QDir::separator() + HTML_PATH;
