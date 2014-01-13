@@ -415,8 +415,12 @@ int main(int argc, char *argv[])
     // the path is NOT a web site url
     if (!HTML_PATH.startsWith("http"))
     {
-        // get it from the local machine
-        HTML_PATH = "file://" + QDir::current().absolutePath() + QDir::separator() + HTML_PATH;
+        // if it's NOT an absolute file path
+        if (!HTML_PATH.startsWith("/")) {
+
+            // get the absolute path from the local machine
+            HTML_PATH = "file://" + QDir::current().absolutePath() + QDir::separator() + HTML_PATH;
+        }
     }
 
     // set window width and height
