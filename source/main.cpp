@@ -420,6 +420,10 @@ int main(int argc, char *argv[])
 
             // get the absolute path from the local machine
             HTML_PATH = "file://" + QDir::current().absolutePath() + QDir::separator() + HTML_PATH;
+        } else {
+
+            // we have an absolute path
+            HTML_PATH = "file://" + HTML_PATH;
         }
     }
 
