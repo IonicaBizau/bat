@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <pre id="localstorage"></pre>
+        <script>
+            document.getElementById("localstorage").innerHTML = JSON.stringify(window.localstorage || {});
+        </script>
+    </body>
+</html>
