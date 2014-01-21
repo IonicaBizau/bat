@@ -307,17 +307,14 @@ public:
         }
 
         QFile file(path);
-        if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        if(!file.open(QIODevice::ReadOnly)) {
             if (debugMode) {
                 qDebug() << "[WARNING] Cannot open file.";
             }
             return "";
         }
-
-        QString fileContent = "";
         QTextStream in(&file);
-
-        in >> fileContent;
+        QString fileContent = in.readAll();
 
         return fileContent;
     }
@@ -406,6 +403,11 @@ int main(int argc, char *argv[])
 
     // build the web view
     QWebView *view = new QWebView();
+
+    // enable local storage
+    QWebSettings *settings = view->settings();
+    settings->setAttribute(QWebSettings::LocalStorageEnabled, true);
+    settings->setLocalStoragePath("/tmp");
 
     webView = view;
 
