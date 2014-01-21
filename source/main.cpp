@@ -357,14 +357,26 @@ public:
      *  $API.debug(command)
      *
      * */
-    Q_INVOKABLE void runBash (QString command) {
+    Q_INVOKABLE QObject *runBash (QString command) {
 
         if (debugMode) {
             qDebug() << "[INFO] Running bash command: " << command;
         }
 
-        system(qPrintable(command));
-        // TODO return output (e.g for `ps aux`)
+        QObject *bashOutput = new QObject();
+
+        QProcess process;
+        process.start(command);
+        // will wait forever until finished
+        process.waitForFinished(-1);
+
+        QString stdout = process.readAllStandardOutput();
+        QString stderr = process.readAllStandardError();
+
+        bashOutput->setProperty("stdout", stdout);
+        bashOutput->setProperty("stderr", stderr);
+
+        return bashOutput;
     }
 
     /*
