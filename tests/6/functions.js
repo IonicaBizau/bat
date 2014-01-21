@@ -5,7 +5,9 @@ $(document).ready(function () {
         $API.debug("Pressed enter..." + $(this).val());
         var command = $(this).val();
         $API.debug(command);
-        $API.runBash(command);
+        var commandRes = $API.runBash(command);
+        $("pre.console").html(commandRes.stderr || commandRes.stdout);
         $(this).val("");
     });
+    
 });
