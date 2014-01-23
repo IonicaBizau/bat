@@ -15,3 +15,34 @@
     background: black;
     position: absolute;
 }
+
+body {
+    font-family: "Open Sans"
+    margin: 0;
+}
+
+[data-path].folder i.fa {
+    color: rgb(206, 66, 0);
+}
+
+[data-path].file i.fa {
+    color: rgb(0, 157, 206);
+}
+
+[data-path] {
+    float: left;
+    padding: 8px;
+    text-align: center;
+    width: 130px;
+    color: rgb(49, 35, 0);
+    margin: 1px;
+    height: 100px;
+    border-radius: 4px;
+    background: white;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+[data-path]:hover {
+    opacity: 1;
+}
