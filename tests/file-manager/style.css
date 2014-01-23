@@ -36,7 +36,7 @@ body {
     width: 130px;
     color: rgb(49, 35, 0);
     margin: 1px;
-    height: 100px;
+    min-height: 160px;
     border-radius: 4px;
     background: white;
     opacity: 0.8;
