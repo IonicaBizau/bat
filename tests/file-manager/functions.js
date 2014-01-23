@@ -2,18 +2,19 @@ $(document).ready(function () {
     var $files = $(".files");
 
     var $templates = {
-        "file": $(".template.file").clone().removeClass("template"),
-        "folder": $(".template.folder").clone().removeClass("template")
+        "file":     $(".template.file").clone().removeClass("template"),
+        "folder":   $(".template.folder").clone().removeClass("template"),
+        "pathdir":  $(".path > .template.dir").clone().removeClass("template")
     };
 
     $(".template.file").remove();
     $(".template.folder").remove();
+    $(".path > .template.dir").remove();
 
     $files.on("dblclick", "[data-path]", function () {
         readDir($(this).attr("data-path"));
         return false;
     });
-
 
     window.readDir = function readDir (cDir) {
         $files.empty()
@@ -41,7 +42,8 @@ $(document).ready(function () {
         }
     }
     
-    readDir("/");
+
+    readDir("/home/");
 
     function getFilesAndDirs (output) {
         return output.split("\n");
