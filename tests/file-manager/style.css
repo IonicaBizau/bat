@@ -17,7 +17,7 @@
 }
 
 body {
-    font-family: "Open Sans"
+    font-family: "Open Sans";
     margin: 0;
 }
 
@@ -29,7 +29,7 @@ body {
     color: rgb(0, 157, 206);
 }
 
-[data-path] {
+.files [data-path] {
     float: left;
     padding: 8px;
     text-align: center;
@@ -45,4 +45,17 @@ body {
 
 [data-path]:hover {
     opacity: 1;
+}
+
+.path .dir {
+    background: rgb(255, 222, 139);
+    padding: 9px;
+    border-left: 3px solid rgb(177, 79, 2);
+    display: inline-block;
+    margin-right: -4px;
+}
+
+.path {
+    background: rgb(255, 163, 0);
+    width: 100%;
 }
