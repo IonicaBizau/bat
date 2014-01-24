@@ -58,10 +58,16 @@ body {
 .path {
     background: rgb(255, 163, 0);
     width: 100%;
+    position: fixed;
+    z-index: 99;
 }
 
 
 [data-path].folder.selected i.fa,
 [data-path].file.selected i.fa {
     color: black;
+}
+
+.files {
+    padding-top: 40px;
 }

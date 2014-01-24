@@ -1,4 +1,9 @@
 $(document).ready(function () {
+
+    $(document).on("contextmenu", function () {
+        return false;
+    });
+
     var $files = $(".files");
 
     var $templates = {
@@ -18,7 +23,6 @@ $(document).ready(function () {
             $API.runBash("xdg-open " + path); 
             return;
         }
-        renderPath(path);
         readDir(path);
         return false;
     }).on("click", ".file,.folder", function (e) {
@@ -30,21 +34,25 @@ $(document).ready(function () {
 
     $(".path").on("click", "[data-path]", function () {
         var path = $(this).attr("data-path");
-        renderPath(path);
         readDir(path);
         return false;
     });
+
+    function getPathTo(folder, fullPath) {
+        var pathToFolder = "";
+        return fullPath.substr(0, fullPath.indexOf(folder) + folder.length + 1);
+    }
 
     function renderPath (path) {
         $API.setWindowTitle(path);
         var dirs = path.split("/");
         var $dirs = [];
-        for (var i = 2; i < dirs.length - 1; ++i) {
+        for (var i = 0; i < dirs.length - 1; ++i) {
             $dirs.push(
                 $templates["dirpath"]
                     .clone()
-                    .attr("data-path", dirs[i])
-                    .text(dirs[i])
+                    .attr("data-path", getPathTo(dirs[i], path))
+                    .text((tmp = dirs[i]) ? tmp : "root")
             );
         }
 
@@ -55,6 +63,7 @@ $(document).ready(function () {
 
     window.readDir = function readDir (cDir) {
         $files.empty();
+        renderPath(cDir);
         var commandRes = $API.runBash("ls " + cDir + " -F --group-directories-first");
         if (commandRes.stderr) {
             $files.html(commandRes.stderr);
