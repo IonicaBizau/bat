@@ -7,6 +7,7 @@ $(document).ready(function () {
         "dirpath":  $(".path > .template.dir").clone().removeClass("template")
     };
 
+
     $(".template.file").remove();
     $(".template.folder").remove();
     $(".path > .template.dir").remove();
@@ -16,6 +17,11 @@ $(document).ready(function () {
         renderPath(path);
         readDir(path);
         return false;
+    }).on("click", ".file,.folder", function (e) {
+        if (!e.ctrlKey) {
+            $(".file,.folder").removeClass("selected");
+        }
+        $(this).toggleClass("selected");
     });
 
     $(".path").on("click", "[data-path]", function () {
@@ -43,7 +49,7 @@ $(document).ready(function () {
     }
 
     window.readDir = function readDir (cDir) {
-        $files.empty()
+        $files.empty();
         var commandRes = $API.runBash("ls " + cDir + " -F --group-directories-first");
         if (commandRes.stderr) {
             $files.html(commandRes.stderr);

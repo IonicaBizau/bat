@@ -59,3 +59,9 @@ body {
     background: rgb(255, 163, 0);
     width: 100%;
 }
+
+
+[data-path].folder.selected i.fa,
+[data-path].file.selected i.fa {
+    color: black;
+}
