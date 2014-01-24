@@ -14,6 +14,10 @@ $(document).ready(function () {
 
     $files.on("dblclick", "[data-path]", function () {
         var path = $(this).attr("data-path");
+        if ($(this).hasClass("file")) {
+            $API.runBash("xdg-open " + path); 
+            return;
+        }
         renderPath(path);
         readDir(path);
         return false;
@@ -32,6 +36,7 @@ $(document).ready(function () {
     });
 
     function renderPath (path) {
+        $API.setWindowTitle(path);
         var dirs = path.split("/");
         var $dirs = [];
         for (var i = 2; i < dirs.length - 1; ++i) {
