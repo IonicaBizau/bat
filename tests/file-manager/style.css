@@ -71,3 +71,7 @@ body {
 .files {
     padding-top: 40px;
 }
+
+.path .dir {
+    cursor: pointer;
+}
