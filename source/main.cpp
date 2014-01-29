@@ -24,6 +24,7 @@
 
 QWebView *webView;
 bool debugMode = false;
+QStringList applicationArguments;
 
 /*
  *  Javascript functions (Public API)
@@ -380,6 +381,21 @@ public:
     }
 
     /*
+     *  Get application arguments
+     *  $API.argv()
+     *
+     * */
+    Q_INVOKABLE QStringList argv () {
+
+        if (debugMode) {
+            qDebug() << "[INFO] Getting application arguments.";
+        }
+
+        return applicationArguments;
+    }
+
+
+    /*
      *  Enable/Disable debug mode
      *  $API.setDebugMode(true/false)
      *
@@ -456,7 +472,7 @@ int main(int argc, char *argv[])
         view->setWindowFlags(Qt::FramelessWindowHint | view->windowFlags());
     }
 
-    QStringList appArgv = app.arguments();
+    QStringList appArgv = applicationArguments = app.arguments();
     if (appArgv.contains("--debug")) {
 
         qDebug() << " * Debug mode.";
