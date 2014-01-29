@@ -29,4 +29,6 @@ cd ..
 echo "> Updating the johnnys-webview application in /usr/bin. Password may be required."
 sudo cp source/JohnnysWebView /usr/bin/johnnys-webview
 
+echo "> Build finished."
+
 # TODO Generate deb packages and push them
