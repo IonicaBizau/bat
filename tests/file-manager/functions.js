@@ -20,7 +20,12 @@ $(document).ready(function () {
     $files.on("dblclick", "[data-path]", function () {
         var path = $(this).attr("data-path");
         if ($(this).hasClass("file")) {
-            $API.runBash("xdg-open " + path); 
+
+            var err = $API.runBash("xdg-open " + path).stderr;
+            if (err) {
+                alert("Error: " + err);
+                return;
+            }
             return;
         }
         readDir(path);
