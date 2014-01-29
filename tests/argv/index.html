@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            #arguments {
+                background: gray;
+                padding: 10px;
+                border: 1px solid #444;
+                font-family: monospace;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <pre id="arguments"></pre>
+        <script>
+            arguments.innerHTML = JSON.stringify(
+                $API.argv(),
+                null,
+                4
+            );
+        </script>
+    </body>
+</html>
