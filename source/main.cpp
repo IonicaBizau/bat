@@ -327,9 +327,9 @@ public:
      * */
     Q_INVOKABLE void debug (QString message) {
 
-        if (debugMode) {
-            qDebug() << "[INFO] Printing debug message: " << message;
-        }
+        // if (debugMode) {
+        //     qDebug() << "[INFO] Printing debug message: " << message;
+        // }
 
         qDebug() << message;
     }
