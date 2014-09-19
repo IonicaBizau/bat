@@ -1,6 +1,6 @@
 (function (window) {
 
-    // do nothing if the page was loaded in 
+    // do nothing if the page was loaded in
     // johnny's webview app
     if (typeof $API !== "undefined") {
         return;
@@ -66,6 +66,8 @@
         },
         getDebugMode: function () {
             return debugMode;
-        }
+        },
+        argv: function () { return ["foo.js"]; },
+        getDirname: function () { return "/home/whoami/"; }
     };
 })(window);
