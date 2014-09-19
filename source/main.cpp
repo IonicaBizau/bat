@@ -422,6 +422,20 @@ public:
 
         return debugMode;
     }
+
+    /*
+     *  Get dirname
+     *  $API.getDirname()
+     *
+     * */
+    Q_INVOKABLE QString getDirname () {
+
+        if (debugMode) {
+            qDebug() << "[INFO] Getting directory name.";
+        }
+
+        return QDir::current().absolutePath();
+    }
 };
 
 int main(int argc, char *argv[])
