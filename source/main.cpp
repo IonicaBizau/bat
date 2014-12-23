@@ -1,13 +1,8 @@
+#include <QApplication>
+
 #include "mainwindow.h"
-#include <QWebView>
 #include <QtWidgets>
 #include <QWebFrame>
-#include <QDir>
-#include <QApplication>
-#include <QDebug>
-#include <QWebPage>
-#include <QObject>
-#include <QWindow>
 #include <QWebInspector>
 
 /*
@@ -440,7 +435,6 @@ public:
 
 int main(int argc, char *argv[])
 {
-
     QApplication app(argc, argv);
 
     // build the web view
