@@ -1,5 +1,4 @@
 #include <QApplication>
-
 #include "mainwindow.h"
 #include <QtWidgets>
 #include <QWebFrame>
@@ -24,7 +23,7 @@ QStringList applicationArguments;
 /*
  *  Javascript functions (Public API)
  * */
-class JohnnysWebviewJavaScriptOperations : public QObject {
+class BatJavaScriptOperations : public QObject {
     Q_OBJECT
 public:
     /*
@@ -499,7 +498,7 @@ int main(int argc, char *argv[])
     }
 
     // add the public api functions
-    view->page()->mainFrame()->addToJavaScriptWindowObject("$API", new JohnnysWebviewJavaScriptOperations);
+    view->page()->mainFrame()->addToJavaScriptWindowObject("$API", new BatJavaScriptOperations);
 
     // resize the window
     view->resize(WINDOW_WIDTH, WINDOW_HEIGHT);
