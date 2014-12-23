@@ -1,3 +1,3 @@
 # BAT Source Code
 
-This directory contains the source code of Johnny's Webview.
+This directory contains the BAT source code.

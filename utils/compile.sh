@@ -1,17 +1,12 @@
 echo "Compiling ..."
 
-# TODO Avoid using `cd`
-
-# go to main directory
-# cd ..
-
 # go to source directory
 echo "> Entering in the source directory ..."
 cd source
 
 # qmake
-echo "> Qmaking JohnnysWebView.pro ..."
-qmake JohnnysWebView.pro
+echo "> Qmaking Bat.pro ..."
+qmake Bat.pro
 
 # make file
 echo "> Qmaking makefile ..."
@@ -22,13 +17,10 @@ echo "> Make ..."
 make
 
 # go back to the main directory
-echo "> Entering in johnnys-webview root ..."
+echo "> Entering in bat root ..."
 cd ..
 
-# TODO Should this made always?
-echo "> Updating the johnnys-webview application in /usr/bin. Password may be required."
-sudo cp source/JohnnysWebView /usr/bin/johnnys-webview
+echo "> Updating the bat application in /usr/bin. Password may be required."
+sudo cp source/bat /usr/bin/bat
 
 echo "> Build finished."
-
-# TODO Generate deb packages and push them

@@ -8,7 +8,7 @@
 DATE=$(date +"%m-%d-%y-%T")
 
 # copy the file in the releases directory
-cp ./deb/64bit/64-dev-release.deb ./releases/64bit-johnnys-webview-$DATE.deb
+cp ./deb/64bit/64-dev-release.deb ./releases/64bit-bat-$DATE.deb
 
 ## git commands
 

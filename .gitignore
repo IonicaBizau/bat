@@ -28,6 +28,6 @@ build-*GCC_32bit-Debug/
 build-*GCC_64bit-Debug/
 
 # compiling from compile.sh
-source/JohnnysWebView
+source/bat
 source/main.moc
 source/ui_mainwindow.h
