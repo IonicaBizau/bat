@@ -28,7 +28,7 @@ class BatJavaScriptOperations : public QObject {
 public:
     /*
      *  Close window
-     *  $API.closeWindow();
+     *  BAT.closeWindow();
      *
      **/
     Q_INVOKABLE void closeWindow () {
@@ -42,7 +42,7 @@ public:
 
     /*
      *  Resize
-     *  $API.resize(width, height);
+     *  BAT.resize(width, height);
      *
      **/
     Q_INVOKABLE void resize (int width, int height) {
@@ -56,7 +56,7 @@ public:
 
     /*
      *  Set window flags
-     *  $API.setWindowFlags (type)
+     *  BAT.setWindowFlags (type)
      *      - UNDECORATED
      *
      * */
@@ -105,7 +105,7 @@ public:
 
     /*
      *  Set window state
-     *  $API.setWindowState (value)
+     *  BAT.setWindowState (value)
      *      - MAXIMIZED
      *      - MINIMIZED
      *      - FULLSCREEN
@@ -141,7 +141,7 @@ public:
 
     /*
      *  Get window size
-     *  $API.getWindowSize ()
+     *  BAT.getWindowSize ()
      * */
     Q_INVOKABLE QObject *getWindowSize () {
 
@@ -161,7 +161,7 @@ public:
 
     /*
      *  Get screen size
-     *  $API.getScreenSize ()
+     *  BAT.getScreenSize ()
      *
      * */
     Q_INVOKABLE QObject *getScreenSize () {
@@ -181,7 +181,7 @@ public:
 
     /*
      *  Set window position
-     *  $API.setWindowPosition (left, top)
+     *  BAT.setWindowPosition (left, top)
      * */
     Q_INVOKABLE void setWindowPosition (int left, int top) {
 
@@ -194,7 +194,7 @@ public:
 
     /*
      *  Get window position
-     *  $API.getWindowPosition (left, top)
+     *  BAT.getWindowPosition (left, top)
      * */
     Q_INVOKABLE QObject *getWindowPosition () {
 
@@ -213,7 +213,7 @@ public:
 
     /*
      *  Get mouse position
-     *  $API.getMousePosition()
+     *  BAT.getMousePosition()
      *
      * */
     Q_INVOKABLE QObject *getMousePosition () {
@@ -233,7 +233,7 @@ public:
 
     /*
      *  Set mouse position
-     *  $API.setMousePosition()
+     *  BAT.setMousePosition()
      *
      * */
     Q_INVOKABLE void setMousePosition (int x, int y) {
@@ -247,7 +247,7 @@ public:
 
     /*
      *  Creates a new window
-     *  $API.newWindow(options);
+     *  BAT.newWindow(options);
      * */
     // TODO Is this really needed?
     // Q_INVOKABLE void newWindow () {
@@ -257,7 +257,7 @@ public:
 
     /*
      *  Sets the title of the current window
-     *  $API.setWindowTitle(newTitle)
+     *  BAT.setWindowTitle(newTitle)
      *
      * */
     Q_INVOKABLE void setWindowTitle (QString newTitle) {
@@ -271,7 +271,7 @@ public:
 
     /*
      *  Writes content to file
-     *  $API.writeFile (path, content);
+     *  BAT.writeFile (path, content);
      *
      * */
     Q_INVOKABLE void writeFile (QString path, QString content) {
@@ -293,7 +293,7 @@ public:
 
     /*
      *  Returns the content content of a file
-     *  $API.readFile (path);
+     *  BAT.readFile (path);
      *
      * */
     Q_INVOKABLE QString readFile (QString path) {
@@ -316,7 +316,7 @@ public:
 
     /*
      *  Debug
-     *  $API.debug(message)
+     *  BAT.debug(message)
      *
      * */
     Q_INVOKABLE void debug (QString message) {
@@ -331,7 +331,7 @@ public:
 
     /*
      *  Insepct element
-     *  $API.inspectElement()
+     *  BAT.inspectElement()
      *
      * */
     Q_INVOKABLE void inspectElement () {
@@ -349,7 +349,7 @@ public:
 
     /*
      *  Run bash commands
-     *  $API.debug(command)
+     *  BAT.debug(command)
      *
      * */
     Q_INVOKABLE QObject *runBash (QString command) {
@@ -376,7 +376,7 @@ public:
 
     /*
      *  Get application arguments
-     *  $API.argv()
+     *  BAT.argv()
      *
      * */
     Q_INVOKABLE QStringList argv () {
@@ -391,7 +391,7 @@ public:
 
     /*
      *  Enable/Disable debug mode
-     *  $API.setDebugMode(true/false)
+     *  BAT.setDebugMode(true/false)
      *
      * */
     Q_INVOKABLE void setDebugMode (bool debug) {
@@ -405,7 +405,7 @@ public:
 
     /*
      *  Get debug mode
-     *  $API.getDebugMode(true/false)
+     *  BAT.getDebugMode(true/false)
      *
      * */
     Q_INVOKABLE bool getDebugMode () {
@@ -419,7 +419,7 @@ public:
 
     /*
      *  Get dirname
-     *  $API.getDirname()
+     *  BAT.getDirname()
      *
      * */
     Q_INVOKABLE QString getDirname () {
@@ -498,7 +498,7 @@ int main(int argc, char *argv[])
     }
 
     // add the public api functions
-    view->page()->mainFrame()->addToJavaScriptWindowObject("$API", new BatJavaScriptOperations);
+    view->page()->mainFrame()->addToJavaScriptWindowObject("BAT", new BatJavaScriptOperations);
 
     // resize the window
     view->resize(WINDOW_WIDTH, WINDOW_HEIGHT);
