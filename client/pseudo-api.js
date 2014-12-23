@@ -1,7 +1,5 @@
 (function (window) {
 
-    // do nothing if the page was loaded in
-    // johnny's webview app
     if (typeof $API !== "undefined") {
         return;
     }

@@ -1,3 +1,2 @@
-# Johnny's Webview Releases
-
-Latest builds of Johnny's Webview.
+# BAT Releases
+Latest builds of BAT.
