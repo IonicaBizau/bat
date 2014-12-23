@@ -442,6 +442,26 @@ int main(int argc, char *argv[])
     settings->setAttribute(QWebSettings::LocalStorageEnabled, true);
     settings->setLocalStoragePath("/tmp");
 
+    QCoreApplication::setApplicationName("BAT");
+    QCoreApplication::setApplicationVersion("1.0.0");
+
+    QCommandLineParser parser;
+    parser.addHelpOption();
+    parser.addVersionOption();
+
+    parser.addPositionalArgument(QStringList() << "t" << "title", QCoreApplication::translate("main", "Sets the window title on start."));
+    parser.addPositionalArgument(QStringList() << "w" << "width", QCoreApplication::translate("main", "Sets the window width."));
+    parser.addPositionalArgument(QStringList() << "h" << "height", QCoreApplication::translate("main", "Sets the window height."));
+    parser.addPositionalArgument(QStringList() << "s" << "source", QCoreApplication::translate("main", "The source of the document you want Bat to load."));
+
+    QCommandLineOption debugOption("debug", QCoreApplication::translate("main", "Run Bat in the debug mode."));
+    parser.addOption(debugOption);
+
+    QCommandLineOption exitOption("exit", QCoreApplication::translate("main", "Closes the application instantly. This is used for adding the application in cache."));
+    parser.addOption(exitOption);
+
+    parser.process(app);
+
     // Set the webview global
     webView = view;
 
