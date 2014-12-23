@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     if (typeof $API === "undefined") {
-        alert("Load this page into Johnny's Webview");
+        alert("Load this page into BAT.");
         return;
     }
 

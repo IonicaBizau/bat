@@ -1,1 +1,1 @@
-johnnys-webview /home/$USER/.johnnys-webview-apps/text-to-speech/index.html 500 300 $@
+bat /home/$USER/.bat-apps/text-to-speech/index.html 500 300 $@

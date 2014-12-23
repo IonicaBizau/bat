@@ -2,13 +2,13 @@ echo "> espeak is required ..."
 sudo apt-get install espeak -y
 
 echo "> Copying executable ..."
-sudo cp start.sh /usr/bin/johnnys-text-to-speech
+sudo cp start.sh /usr/bin/bat-text-to-speech
 
-mkdir ~/.johnnys-webview-apps
+mkdir ~/.bat-apps
 
-rm -rf ~/.johnnys-webview-apps/text-to-speech
-mkdir ~/.johnnys-webview-apps/text-to-speech
+rm -rf ~/.bat-apps/text-to-speech
+mkdir ~/.bat-apps/text-to-speech
 
-cp * ~/.johnnys-webview-apps/text-to-speech
+cp * ~/.bat-apps/text-to-speech
 
 echo "> Finished."
