@@ -21,6 +21,6 @@ echo "> Entering in bat root ..."
 cd ..
 
 echo "> Updating the bat application in /usr/bin. Password may be required."
-sudo cp source/bat /usr/bin/bat
+sudo cp source/Bat /usr/bin/bat
 
 echo "> Build finished."
