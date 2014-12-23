@@ -24,8 +24,8 @@ Makefile
 *~
 
 # build directory
-build-JohnnysWebView-Desktop_Qt_5_1_1_GCC_32bit-Debug/
-build-JohnnysWebView-Desktop_Qt_5_1_1_GCC_64bit-Debug/
+build-*GCC_32bit-Debug/
+build-*GCC_64bit-Debug/
 
 # compiling from compile.sh
 source/JohnnysWebView
