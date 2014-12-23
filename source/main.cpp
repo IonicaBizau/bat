@@ -21,7 +21,7 @@ bool debugMode = false;
 QStringList applicationArguments;
 
 /*
- *  Javascript functions (Public API)
+ *  Javascript API
  * */
 class BatJavaScriptOperations : public QObject {
     Q_OBJECT
@@ -435,40 +435,35 @@ public:
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-
-    // build the web view
     QWebView *view = new QWebView();
 
-    // enable local storage
+    // Local storage
     QWebSettings *settings = view->settings();
     settings->setAttribute(QWebSettings::LocalStorageEnabled, true);
     settings->setLocalStoragePath("/tmp");
 
+    // Set the webview global
     webView = view;
 
-    // get the html path
-    QString HTML_PATH       = QString(argv[1]);
+    // Get the HTML path
+    QString htmlPath = QString(argv[1]);
 
-    // the path is NOT a web site url
-    if (!HTML_PATH.startsWith("http"))
+    // Handle local files
+    if (!htmlPath.startsWith("http"))
     {
-        // if it's NOT an absolute file path
-        if (!HTML_PATH.startsWith("/")) {
-
-            // get the absolute path from the local machine
-            HTML_PATH = "file://" + QDir::current().absolutePath() + QDir::separator() + HTML_PATH;
+        // Absolute path
+        if (htmlPath.startsWith("/")) {
+            htmlPath = "file://" + htmlPath;
         } else {
-
-            // we have an absolute path
-            HTML_PATH = "file://" + HTML_PATH;
+            htmlPath = "file://" + QDir::current().absolutePath() + QDir::separator() + htmlPath;
         }
     }
 
-    // set window width and height
-    int     WINDOW_WIDTH    = QString(argv[2]).toInt();
-    int     WINDOW_HEIGHT   = QString(argv[3]).toInt();
+    // Get window width and height
+    int windowWidth = QString(argv[2]).toInt();
+    int windowHeight = QString(argv[3]).toInt();
 
-    // handle "UNDECORATED" flag
+    // Handle "UNDECORATED" flag
     if (QString(argv[4]) == "UNDECORATED") {
         // set background transparent for webview
         QPalette pal = view->palette();
@@ -497,16 +492,11 @@ int main(int argc, char *argv[])
         view->setWindowFlags(Qt::WindowStaysOnTopHint    | view->windowFlags());
     }
 
-    // add the public api functions
+    // Add the JavaScript API
     view->page()->mainFrame()->addToJavaScriptWindowObject("BAT", new BatJavaScriptOperations);
 
-    // resize the window
-    view->resize(WINDOW_WIDTH, WINDOW_HEIGHT);
-
-    // load that HTML file or website
-    view->load(QUrl(HTML_PATH));
-
-    // show the web view
+    view->resize(windowWidth, windowHeight);
+    view->load(QUrl(htmlPath));
     view->show();
 
     // if --exit was provided
