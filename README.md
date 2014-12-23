@@ -1,9 +1,8 @@
-Johnny's Webview
-================
+![BAT - Build Awesome Tools For Desktop using WEB Technologies](/resources/header.png)
 
-A simple web page loader as a desktop application.
+This is a minimalist application that is used for building native desktop applications using WEB technologies.
 
-## Implemented functions
+## JavaScript API
 
 The following functions are implemented for the Javascript API.
 
@@ -122,5 +121,4 @@ Now you are able to add new great features or to fix bugs! **Before** doing this
 This helps to keep the repository organised.
 
 ## Licence
-
-See licence file.
+See the [LICENSE](/LICENSE) file.
