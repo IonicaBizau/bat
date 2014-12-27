@@ -29,5 +29,6 @@ build-*GCC_64bit-Debug/
 
 # compiling from compile.sh
 source/bat
+source/Bat
 source/main.moc
 source/ui_mainwindow.h
