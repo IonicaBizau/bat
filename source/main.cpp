@@ -445,20 +445,32 @@ int main(int argc, char *argv[])
     QCoreApplication::setApplicationName("BAT");
     QCoreApplication::setApplicationVersion("1.0.0");
 
+    // Defaults
+    int WINDOW_WIDTH = 800;
+    int WINDOW_HEIGHT = 600;
+
+    // Parse command line arguments
     QCommandLineParser parser;
     parser.addHelpOption();
     parser.addVersionOption();
 
-    parser.addPositionalArgument(QStringList() << "t" << "title", QCoreApplication::translate("main", "Sets the window title on start."));
-    parser.addPositionalArgument(QStringList() << "w" << "width", QCoreApplication::translate("main", "Sets the window width."));
-    parser.addPositionalArgument(QStringList() << "h" << "height", QCoreApplication::translate("main", "Sets the window height."));
-    parser.addPositionalArgument(QStringList() << "s" << "source", QCoreApplication::translate("main", "The source of the document you want Bat to load."));
+    QCommandLineOption titleOption(QStringList() << "t" << "title", "Sets the window title on start.", "title", "BAT");
+    parser.addOption(titleOption);
 
-    QCommandLineOption debugOption("debug", QCoreApplication::translate("main", "Run Bat in the debug mode."));
+    QCommandLineOption sizeOption(QStringList() << "s" << "size", "Sets the BAT window size.", "WxH", QString::number(WINDOW_WIDTH) + "x" + QString::number(WINDOW_HEIGHT));
+    parser.addOption(sizeOption);
+
+    QCommandLineOption sourceOption(QStringList() << "d" << "document", "The path to the document you want BAT to load.", "path/to/file.html", "~/.bat/welcome.html");
+    parser.addOption(sourceOption);
+
+    QCommandLineOption undecorateOption(QStringList() << "u" << "undecorate", "Starts BAT with an undecorated window.");
+    parser.addOption(undecorateOption);
+
+    QCommandLineOption positionMost(QStringList() << "m" << "most", "If TOP is provided, then the window is keept on the top of the other windows. If BOTTOM is provided, the window will be in the behind of all windows.");
+    parser.addOption(positionMost);
+
+    QCommandLineOption debugOption("debug", QCoreApplication::translate("main", "Starts BAT in the debug mode."));
     parser.addOption(debugOption);
-
-    QCommandLineOption exitOption("exit", QCoreApplication::translate("main", "Closes the application instantly. This is used for adding the application in cache."));
-    parser.addOption(exitOption);
 
     parser.process(app);
 
@@ -466,7 +478,7 @@ int main(int argc, char *argv[])
     webView = view;
 
     // Get the HTML path
-    QString htmlPath = QString(argv[1]);
+    QString htmlPath = parser.value(sourceOption);
 
     // Handle local files
     if (!htmlPath.startsWith("http"))
@@ -479,36 +491,37 @@ int main(int argc, char *argv[])
         }
     }
 
+    QString size = parser.value(sizeOption);
+
     // Get window width and height
-    int windowWidth = QString(argv[2]).toInt();
-    int windowHeight = QString(argv[3]).toInt();
+    int windowWidth = size.split('x')[0].toInt();
+    int windowHeight = size.split('x')[1].toInt();
 
     // Handle "UNDECORATED" flag
-    if (QString(argv[4]) == "UNDECORATED") {
-        // set background transparent for webview
+    if (parser.isSet(undecorateOption)) {
         QPalette pal = view->palette();
         pal.setBrush(QPalette::Base, Qt::transparent);
         view->page()->setPalette(pal);
         view->setAttribute(Qt::WA_TranslucentBackground);
-
         view->setWindowFlags(Qt::FramelessWindowHint | view->windowFlags());
     }
 
     QStringList appArgv = applicationArguments = app.arguments();
-    if (appArgv.contains("--debug")) {
 
+    // Handle the debug mode
+    if (parser.isSet(debugOption)) {
         qDebug() << " * Debug mode.";
         debugMode = true;
         view->page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
-
         QWebInspector inspector;
         inspector.setPage(view->page());
         inspector.setVisible(true);
     }
 
-    if (QString(argv[5]) == "BOTTOM_MOST") {
+    QString btMost = parser.value(positionMost);
+    if (btMost == "BOTTOM") {
         view->setWindowFlags(Qt::WindowStaysOnBottomHint | view->windowFlags());
-    } else if (QString(argv[5]) == "TOP_MOST") {
+    } else if (btMost == "TOP") {
         view->setWindowFlags(Qt::WindowStaysOnTopHint    | view->windowFlags());
     }
 
@@ -519,12 +532,7 @@ int main(int argc, char *argv[])
     view->load(QUrl(htmlPath));
     view->show();
 
-    // if --exit was provided
-    if (appArgv.contains("--exit")) {
-        qDebug() << "Exiting...";
-        QApplication::quit();
-    }
-
+    webView->setWindowTitle(parser.value(titleOption));
     return app.exec();
 }
 
