@@ -1,71 +1,71 @@
-(function (window) {
+(function(window) {
 
-    if (typeof $API !== "undefined") {
+    if (typeof BAT !== "undefined") {
         return;
     }
 
     var debugMode = false
 
-    // export $API object
-    window["$API"] = {
-        closeWindow: function () {
+    // export BAT object
+    window["BAT"] = {
+        closeWindow: function() {
         },
-        resize: function (width, height) {
+        resize: function(width, height) {
         },
-        setWindowFlags: function (type) {
+        setWindowFlags: function(type) {
         },
-        setWindowState: function (type) {
+        setWindowState: function(type) {
         },
-        getWindowSize: function () {
+        getWindowSize: function() {
             return {
                 width: 200,
                 height: 200
             };
         },
-        getScreenSize: function () {
+        getScreenSize: function() {
             return {
                 width: 400,
                 height: 400
             };
         },
-        setWindowPosition: function (left, top) {
+        setWindowPosition: function(left, top) {
         },
-        getWindowPosition: function () {
+        getWindowPosition: function() {
 
             return {
                 left: 10,
                 top: 10
             };
         },
-        getMousePosition: function () {
+        getMousePosition: function() {
             return {
                 left: 30,
                 top: 10
             };
         },
-        setMousePosition: function (x, y) {
+        setMousePosition: function(x, y) {
         },
-        setWindowTitle: function (newTitle) {
+        setWindowTitle: function(newTitle) {
             document.title = newTitle;
         },
-        writeFile: function (filePath, content) {
+        writeFile: function(filePath, content) {
         },
-        readFile: function (path) {
+        readFile: function(path) {
         },
-        debug: function (message) {
+        debug: function(message) {
             console.debug(message);
         },
-        inspectElement: function () {
+        inspectElement: function() {
         },
-        runBash: function (command) {
+        runBash: function(command) {
         },
-        setDebugMode: function (debug) {
+        setDebugMode: function(debug) {
             debugMode = debug;
         },
-        getDebugMode: function () {
+        getDebugMode: function() {
             return debugMode;
         },
-        argv: function () { return ["foo.js"]; },
-        getDirname: function () { return "/home/whoami/"; }
+        argv: function() { return ["foo.js"]; },
+        getDirname: function() { return "/home/whoami/"; }
     };
 })(window);

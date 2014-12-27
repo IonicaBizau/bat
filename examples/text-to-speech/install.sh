@@ -7,7 +7,7 @@ sudo cp start.sh /usr/bin/bat-text-to-speech
 mkdir ~/.bat-apps
 
 rm -rf ~/.bat-apps/text-to-speech
-mkdir ~/.bat-apps/text-to-speech
+mkdir -p ~/.bat-apps/text-to-speech
 
 cp * ~/.bat-apps/text-to-speech
 

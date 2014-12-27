@@ -1,6 +1,6 @@
 (function (window) {
     // handle errors
     window.onerror = function (e) {
-        $API.debug (e);
+        BAT.debug(e);
     };
 })(window);
