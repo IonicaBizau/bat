@@ -1,3 +1,20 @@
+/**
+ * Usage: ./Bat [options]
+ *
+ * Options:
+ *   -h, --help                          Displays this help.
+ *   -v, --version                       Displays version information.
+ *   -t, --title <title>                 Sets the window title on start.
+ *   -s, --size <WxH>                    Sets the BAT window size.
+ *   -d, --document <path/to/file.html>  The path to the document you want BAT to
+ *                                       load.
+ *   -u, --undecorate                    Starts BAT with an undecorated window.
+ *   -m, --most                          If TOP is provided, then the window is
+ *                                       keept on the top of the other windows. If
+ *                                       BOTTOM is provided, the window will be in
+ *                                       the behind of all windows.
+ *   --debug                             Starts BAT in the debug mode.
+ * */
 #include <QApplication>
 #include "mainwindow.h"
 #include <QtWidgets>
