@@ -6,9 +6,9 @@
     <body style="background:white">
         <script>
             setInterval(function () {
-                var pos = $API.getMousePosition();
+                var pos = BAT.getMousePosition();
                 document.getElementById("mouse-pos").innerHTML = JSON.stringify(pos);
-            }, 100);
+            }, 10);
         </script>
         <h1 id="mouse-pos"></h1>
     </body>

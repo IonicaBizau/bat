@@ -1,10 +1,10 @@
-// if (typeof $API === "undefined") {
-//     $API = {
+// if (typeof BAT === "undefined") {
+//     BAT = {
 //         getWindowSize: function () {return {width: 40, height: 500};},
 //         setMousePosition: function () {}
 //     }
 // }
-var SCREEN_SIZE = $API.getScreenSize();
+var SCREEN_SIZE = BAT.getScreenSize();
 
 var p1 = {
     x: 30,
@@ -23,7 +23,7 @@ var p4 = {
     y: SCREEN_SIZE.height - 30
 };
 
-$API.debug(JSON.stringify(SCREEN_SIZE));
+BAT.debug(JSON.stringify(SCREEN_SIZE));
 
 var c = JSON.parse(JSON.stringify(p1));
 c.direction = "right";
@@ -31,7 +31,7 @@ c.x = p2.x - 10;
 
 var step = 5;
 setInterval(function () {
-   $API.debug("1) x = " + c.x + " y = " + c.y + " direction = " + c.direction);
+   BAT.debug("1) x = " + c.x + " y = " + c.y + " direction = " + c.direction);
    switch (c.direction) {
         case "right":
             if (c.x < p2.x) c.x += step;
@@ -50,6 +50,6 @@ setInterval(function () {
             else c.direction = "right";
             break;
    }
-   $API.debug("2) x = " + c.x + " y = " + c.y + " direction = " + c.direction);
-   $API.setMousePosition (c.x, c.y);
+   BAT.debug("2) x = " + c.x + " y = " + c.y + " direction = " + c.direction);
+   BAT.setMousePosition (c.x, c.y);
 }, 1);

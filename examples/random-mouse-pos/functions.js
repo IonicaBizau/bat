@@ -1,5 +1,5 @@
 // get the screen side
-var SCREEN_SIZE = $API.getScreenSize();
+var SCREEN_SIZE = BAT.getScreenSize();
 
 // this is the maximum value for mouse deviation
 var s = 10;
@@ -7,7 +7,7 @@ var s = 10;
 // create an interval
 setInterval(function () {
     // get the current mouse position
-    var cPos = $API.getMousePosition();
+    var cPos = BAT.getMousePosition();
     var x = cPos.left, y = cPos.top;
 
     // random deviation on x and y
@@ -21,7 +21,7 @@ setInterval(function () {
     y += r.y * oneOrMinusOne();
 
     // and finally, set the mouse possition
-    $API.setMousePosition(x, y);
+    BAT.setMousePosition(x, y);
 }, 10);
 
 /*

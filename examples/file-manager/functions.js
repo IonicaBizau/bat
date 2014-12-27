@@ -21,7 +21,7 @@ $(document).ready(function () {
         var path = $(this).attr("data-path");
         if ($(this).hasClass("file")) {
 
-            var err = $API.runBash("xdg-open " + path).stderr;
+            var err = BAT.runBash("xdg-open " + path).stderr;
             if (err) {
                 alert("Error: " + err);
                 return;
@@ -49,7 +49,7 @@ $(document).ready(function () {
     }
 
     function renderPath (path) {
-        $API.setWindowTitle(path);
+        BAT.setWindowTitle(path);
         var dirs = path.split("/");
         var $dirs = [];
         for (var i = 0; i < dirs.length - 1; ++i) {
@@ -69,7 +69,7 @@ $(document).ready(function () {
     window.readDir = function readDir (cDir) {
         $files.empty();
         renderPath(cDir);
-        var commandRes = $API.runBash("ls " + cDir + " -F --group-directories-first");
+        var commandRes = BAT.runBash("ls " + cDir + " -F --group-directories-first");
         if (commandRes.stderr) {
             $files.html(commandRes.stderr);
         }
@@ -77,7 +77,7 @@ $(document).ready(function () {
         for (var i = 0; i < filesAndDirs.length - 1; ++i) {
             var cFileOrDir = filesAndDirs[i];
             var isFolder = cFileOrDir.slice(-1) === "/" ? true : false;
-            
+
             if (isFolder) {
                 cFileOrDir = cFileOrDir.substr(0, cFileOrDir.length - 1);
             }
@@ -92,7 +92,7 @@ $(document).ready(function () {
             $files.append($newFileOrDir);
         }
     }
-    
+
 
     readDir("/home/");
 

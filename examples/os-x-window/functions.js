@@ -1,17 +1,17 @@
 $(document).ready(function () {
 
-    if (typeof $API === "undefined") {
+    if (typeof BAT === "undefined") {
         alert("Load this page into BAT.");
         return;
     }
 
-    $(".close").on("click", $API.closeWindow);
+    $(".close").on("click", BAT.closeWindow);
 
     var maximized = false;
 
     $(".maximize").on("click", function () {
         if (!maximized) {
-            $API.setWindowState("MAXIMIZED");
+            BAT.setWindowState("MAXIMIZED");
             $(".window.finder").css({
                 left:   "0px",
                 top:    "0px",
@@ -20,7 +20,7 @@ $(document).ready(function () {
             });
             maximized = true;
         } else {
-            $API.setWindowState("RESTORED");
+            BAT.setWindowState("RESTORED");
             maximized = false;
             $(".window.finder").css({
                 left:   "90px",
@@ -41,13 +41,13 @@ $(document).ready(function () {
     }).on("mousemove", function (e) {
 
         if (!resize) { return; }
-        var current = $API.getWindowSize();
+        var current = BAT.getWindowSize();
         var width, height;
 
         width = current.width + (e.pageX - this.offsetLeft - initial.x);
         height = current.height + (e.pageY - this.offsetTop - initial.y);
 
-        $API.resize(width, height);
+        BAT.resize(width, height);
     });
 
     $("body").on("mouseout mouseup", function () {
@@ -66,7 +66,7 @@ $(document).ready(function () {
 
         if (!drag) { return; }
 
-        var current = $API.getWindowPosition();
+        var current = BAT.getWindowPosition();
 
         var winLeft, winTop;
 
@@ -75,7 +75,7 @@ $(document).ready(function () {
         winTop  = current.top + (e.pageY- initialPos.y);
 
         $(".pos").text(JSON.stringify({top: winTop, left: winLeft}));
-        $API.setWindowPosition(winLeft, winTop);
+        BAT.setWindowPosition(winLeft, winTop);
     });
 
     $("body").on("mouseout mouseup", function () {
