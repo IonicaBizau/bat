@@ -4,18 +4,6 @@
 #include <QWebFrame>
 #include <QWebInspector>
 
-/*
- *  Utility:
- *  ./exectuable pageAddress width height decoration (BOTTOM_MOST)
- *
- *   - pageAddress: the html file path or url
- *   - width:       integer that represent the width of the window
- *   - height:      integer that represent the height of the window
- *   - decoration:  if it is "UNDECORATED" the window will be undecorated (it will not have
- *                  borders and the window buttons
- *
- * */
-
 QWebView *webView;
 bool debugMode = false;
 QStringList applicationArguments;
