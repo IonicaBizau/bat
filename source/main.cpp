@@ -491,6 +491,8 @@ int main(int argc, char *argv[])
         // Absolute path
         if (htmlPath.startsWith("/")) {
             htmlPath = "file://" + htmlPath;
+        } else if (htmlPath.startsWith("~")) {
+            htmlPath = htmlPath.replace(QRegularExpression("^~"), QDir::homePath());
         } else {
             htmlPath = "file://" + QDir::current().absolutePath() + QDir::separator() + htmlPath;
         }
@@ -510,8 +512,6 @@ int main(int argc, char *argv[])
         view->setAttribute(Qt::WA_TranslucentBackground);
         view->setWindowFlags(Qt::FramelessWindowHint | view->windowFlags());
     }
-
-    QStringList appArgv = applicationArguments = app.arguments();
 
     // Handle the debug mode
     if (parser.isSet(debugOption)) {
