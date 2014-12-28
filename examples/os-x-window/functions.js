@@ -9,6 +9,16 @@ $(document).ready(function () {
 
     var maximized = false;
 
+    var mousePosition = BAT.getMousePosition();
+    function mouseMove(callback) {
+        setInterval(function () {
+            var cMousePos = BAT.getMousePosition();
+            if (mousePosition.left !== cMousePos.left || mousePosition.top !== cMouse.top) {
+                callback(mousePosition = cMousePos);
+            }
+        }, 1);
+    }
+
     $(".maximize").on("click", function () {
         if (!maximized) {
             BAT.setWindowState("MAXIMIZED");
@@ -31,28 +41,8 @@ $(document).ready(function () {
         }
     });
 
-    /* resize */
-    var initial = {};
-    var resize = false;
-    $(".resize").on("mousedown", function (e) {
-        resize = true;
-        initial.x = e.pageX - this.offsetLeft;
-        initial.y = e.pageY - this.offsetTop;
-    }).on("mousemove", function (e) {
-
-        if (!resize) { return; }
-        var current = BAT.getWindowSize();
-        var width, height;
-
-        width = current.width + (e.pageX - this.offsetLeft - initial.x);
-        height = current.height + (e.pageY - this.offsetTop - initial.y);
-
-        BAT.resize(width, height);
-    });
-
-    $("body").on("mouseout mouseup", function () {
-        resize = false;
-        initial = {};
+    $(".minimize").on("click", function () {
+        BAT.setWindowState("MINIMIZED");
     });
 
     /* drag */
@@ -62,23 +52,20 @@ $(document).ready(function () {
         drag = true;
         initialPos.x = e.pageX;
         initialPos.y = e.pageY;
-    }).on("mousemove", function (e) {
+    });
 
+    mouseMove(function (e) {
         if (!drag) { return; }
 
-        var current = BAT.getWindowPosition();
-
         var winLeft, winTop;
-
-
-        winLeft = current.left + (e.pageX - initialPos.x);
-        winTop  = current.top + (e.pageY- initialPos.y);
+        winLeft = e.left - initialPos.x;
+        winTop  = e.top - initialPos.y - 3;
 
         $(".pos").text(JSON.stringify({top: winTop, left: winLeft}));
         BAT.setWindowPosition(winLeft, winTop);
     });
 
-    $("body").on("mouseout mouseup", function () {
+    $(document).on("mouseup", function () {
         drag = false;
         initial = {};
     });

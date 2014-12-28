@@ -23,4 +23,26 @@ html, body {
     background: red;
 }
 
+
+@-webkit-keyframes pulse_animation {
+    0% { -webkit-transform: scale(1); }
+    16% { -webkit-transform: scale(1); }
+    33% { -webkit-transform: scale(1.2); }
+    50% { -webkit-transform: scale(1); }
+    66% { -webkit-transform: scale(1); }
+    83% { -webkit-transform: scale(1.2); }
+}
+
+.pulse {
+    -webkit-animation-name: 'pulse_animation';
+    -webkit-animation-duration: 1500ms;
+    -webkit-transform-origin: 50% 60%;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+
 h1 { cursor: default; }
+
+nav > * {
+    outline: none;
+}

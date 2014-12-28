@@ -1,1 +1,1 @@
-bat -s 500x500 -u -d index.html
+bat -s 600x420 -u -d index.html
