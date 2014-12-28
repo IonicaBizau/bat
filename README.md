@@ -2,6 +2,22 @@
 
 This is a minimalist application that is used for building native desktop applications using WEB technologies.
 
+## Installation
+
+### Linux
+You can compile it from source, using the scripts or, just download the latest binary using the following commands:
+
+```sh
+# Download the deb package
+$ wget https://github.com/IonicaBizau/bat/raw/1.0.0/deb/64bit/64-dev-release.deb
+
+# And install it
+$ sudo dpkg -i 64-dev-release.deb
+```
+
+### OS X & Windows
+Not yet compatible. The application needs to be on these platforms.
+
 ## JavaScript API
 
 The following functions are implemented for the Javascript API.
