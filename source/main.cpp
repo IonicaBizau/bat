@@ -492,7 +492,7 @@ int main(int argc, char *argv[])
         if (htmlPath.startsWith("/")) {
             htmlPath = "file://" + htmlPath;
         } else if (htmlPath.startsWith("~")) {
-            htmlPath = htmlPath.replace(QRegularExpression("^~"), QDir::homePath());
+            htmlPath = "file://" + htmlPath.replace(QRegularExpression("^~"), QDir::homePath());
         } else {
             htmlPath = "file://" + QDir::current().absolutePath() + QDir::separator() + htmlPath;
         }
