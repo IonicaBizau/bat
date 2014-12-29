@@ -22,10 +22,10 @@ Makefile
 # temp files
 *.swp
 *~
+.DS_Store
 
 # build directory
-build-*GCC_32bit-Debug/
-build-*GCC_64bit-Debug/
+build-*-Debug/
 
 # compiling from compile.sh
 source/bat
