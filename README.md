@@ -39,6 +39,11 @@ Options:
   --debug                             Starts BAT in the debug mode.
 ```
 
+
+## Demo
+
+![Demo](/resources/demo.png)
+
 ## JavaScript API
 
 The following functions are implemented for the Javascript API.
