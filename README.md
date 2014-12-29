@@ -9,7 +9,7 @@ You can compile it from source, using the scripts or, just download the latest b
 
 ```sh
 # Download the deb package
-$ wget https://github.com/IonicaBizau/bat/raw/1.0.0/deb/64bit/64-dev-release.deb
+$ wget https://github.com/IonicaBizau/bat/raw/master/deb/64bit/64-dev-release.deb
 
 # And install it
 $ sudo dpkg -i 64-dev-release.deb
