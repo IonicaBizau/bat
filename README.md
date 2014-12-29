@@ -1,9 +1,24 @@
-Johnny's Webview
-================
+![BAT - Build Awesome Tools For Desktop using WEB Technologies](/resources/header.png)
 
-A simple web page loader as a desktop application.
+This is a minimalist application that is used for building native desktop applications using WEB technologies.
 
-## Implemented functions
+## Installation
+
+### Linux
+You can compile it from source, using the scripts or, just download the latest binary using the following commands:
+
+```sh
+# Download the deb package
+$ wget https://github.com/IonicaBizau/bat/raw/1.0.0/deb/64bit/64-dev-release.deb
+
+# And install it
+$ sudo dpkg -i 64-dev-release.deb
+```
+
+### OS X & Windows
+Not yet compatible. The application needs to be on these platforms.
+
+## JavaScript API
 
 The following functions are implemented for the Javascript API.
 
@@ -17,19 +32,19 @@ The following functions are implemented for the Javascript API.
   </thead>
   <tbody>
     <tr>
-      <td><code>$API.closeWindow()</code></td>
+      <td><code>BAT.closeWindow()</code></td>
       <td>No arguments</td>
       <td>Closes the window</td>
     </tr>
     <tr>
-      <td><code>$API.resize(width, height);</code></td>
+      <td><code>BAT.resize(width, height);</code></td>
       <td>
         <code>width</code> - the new width of the window,
         <code>height</code> - the new height of the window</td>
       <td>Resizes the window</td>
     </tr>
     <tr>
-      <td><code>$API.setWindowFlags (type)</code></td>
+      <td><code>BAT.setWindowFlags(type)</code></td>
       <td>
         <ul>
           <li><code>UNDECORATED</code> - undecorates the window</li>
@@ -43,7 +58,7 @@ The following functions are implemented for the Javascript API.
       <td>Sets the window flags</td>
     </tr>
     <tr>
-      <td><code>$API.setWindowState (value)</code></td>
+      <td><code>BAT.setWindowState(value)</code></td>
       <td>One of the following values:
         <code>MAXIMIZED</code>,
         <code>MINIMIZED</code>,
@@ -53,54 +68,54 @@ The following functions are implemented for the Javascript API.
       <td>Sets the window state</td>
     </tr>
     <tr>
-      <td><code>$API.getWindowSize ()</code></td>
+      <td><code>BAT.getWindowSize()</code></td>
       <td>No argumnets</td>
       <td>Returns an object that contains <code>width</code> and <code>height</code> fields that represent the sizes of the window.</td>
     </tr>
     <tr>
-      <td><code>$API.getWindowPosition ()</code></td>
+      <td><code>BAT.getWindowPosition()</code></td>
       <td>No argumnets</td>
       <td>Returns an object that contains <code>top</code> and <code>left</code> fields that represent the coordinates of the window.</td>
     </tr>
     <tr>
-      <td><code>$API.setWindowPosition (top, left)</code></td>
+      <td><code>BAT.setWindowPosition(top, left)</code></td>
       <td><code>top</code> and <code>left</code> coordinates for the new position of the window</td>
       <td>Sets the new position of the window on the screen.</td>
     </tr>
     <tr>
-      <td><code>$API.getMousePosition ()</code></td>
+      <td><code>BAT.getMousePosition()</code></td>
       <td>No argumnets</td>
       <td>Gets the mouse position on the screen.</td>
     </tr>
     <tr>
-      <td><code>$API.setMousePosition (x, y)</code></td>
+      <td><code>BAT.setMousePosition(x, y)</code></td>
       <td>
         <code>x</code> - the x coordinate of the mouse,
         <code>y</code> - the y coordinate of the mouse</td>
       <td>Sets the mouse position on the screen.</td>
     </tr>
     <tr>
-      <td><code>$API.debug (message)</code></td>
+      <td><code>BAT.debug(message)</code></td>
       <td><code>message</code>  - string that will be printed in the console</td>
       <td>Outputs a message in the terminal.</td>
     </tr>
     <tr>
-      <td><code>$API.setWindowTitle (newTitle)</code></td>
+      <td><code>BAT.setWindowTitle(newTitle)</code></td>
       <td><code>newTitle</code> - string that represents the new title that you want to set to the window</td>
       <td>Sets the new window title.</td>
     </tr>
     <tr>
-      <td><code>$API.inspectElement ()</code></td>
+      <td><code>BAT.inspectElement()</code></td>
       <td>No arguments</td>
-      <td>Opens the developer tools in the Johnny's Webview</td>
+      <td>Opens the BAT developer tools window.</td>
     </tr>
     <tr>
-      <td><code>$API.runBash (command)</code></td>
-      <td><code>command</code> - string that represents the command that you want to run in the bash via Johnny's Web view.</td>
+      <td><code>BAT.runBash(command)</code></td>
+      <td><code>command</code> - string that represents the command that you want to run in the bash via BAT.</td>
       <td>Runs a bash command.</td>
     </tr>
     <tr>
-      <td><code>$API.getScreenSize ()</code></td>
+      <td><code>BAT.getScreenSize()</code></td>
       <td>No arguments</td>
       <td>Returns an object that contains <code>width</code> and <code>height</code> fields that represent the sizes of the screen.</td>
     </tr>
@@ -108,19 +123,18 @@ The following functions are implemented for the Javascript API.
 </table>
 
 ## How to hack?
-
 Do you want to contribute? Great! There are few steps to do this.
 
- 1. Fork this repository in your account.
- 2. Clone your (forked) repository on your computer.
- 3. Make sure that you have Qt installed. If not, [download and install it](http://qt-project.org/downloads).
- 4. Open the cloned project (from step 2) in Qt creator.
- 5. Compile it.
+1. File an issue in the repository, using the bug tracker, describing the
+   contribution you'd like to make. This will help us to get you started on the
+   right foot.
+2. Fork the project in your account and create a new branch:
+   `your-great-feature`.
+3. Commit your changes in that branch.
+4. Open a pull request, and reference the initial issue in the pull request
+   message.
 
-Now you are able to add new great features or to fix bugs! **Before** doing this create a branch with name `new-feature-[YOUR_FEATURE]` and also create tests.
 
-This helps to keep the repository organised.
 
 ## Licence
-
-See licence file.
+See the [LICENSE](/LICENSE) file.

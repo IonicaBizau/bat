@@ -1,5 +1,5 @@
 echo "> Copying the executable file into deb directory"
-cp source/JohnnysWebView ./deb/64bit/usr/bin/johnnys-webview
+cp source/Bat ./deb/64bit/usr/bin/bat
 
 echo "> Removing all deb files from ./deb/64bit directory."
 rm deb/64bit/*.deb

@@ -1,40 +1,39 @@
+/**
+ * Usage: ./Bat [options]
+ *
+ * Options:
+ *   -h, --help                          Displays this help.
+ *   -v, --version                       Displays version information.
+ *   -t, --title <title>                 Sets the window title on start.
+ *   -s, --size <WxH>                    Sets the BAT window size.
+ *   -d, --document <path/to/file.html>  The path to the document you want BAT to
+ *                                       load.
+ *   -u, --undecorate                    Starts BAT with an undecorated window.
+ *   -m, --most                          If TOP is provided, then the window is
+ *                                       keept on the top of the other windows. If
+ *                                       BOTTOM is provided, the window will be in
+ *                                       the behind of all windows.
+ *   --debug                             Starts BAT in the debug mode.
+ * */
+#include <QApplication>
 #include "mainwindow.h"
-#include <QWebView>
 #include <QtWidgets>
 #include <QWebFrame>
-#include <QDir>
-#include <QApplication>
-#include <QDebug>
-#include <QWebPage>
-#include <QObject>
-#include <QWindow>
 #include <QWebInspector>
-
-/*
- *  Utility:
- *  ./exectuable pageAddress width height decoration (BOTTOM_MOST)
- *
- *   - pageAddress: the html file path or url
- *   - width:       integer that represent the width of the window
- *   - height:      integer that represent the height of the window
- *   - decoration:  if it is "UNDECORATED" the window will be undecorated (it will not have
- *                  borders and the window buttons
- *
- * */
 
 QWebView *webView;
 bool debugMode = false;
 QStringList applicationArguments;
 
 /*
- *  Javascript functions (Public API)
+ *  Javascript API
  * */
-class JohnnysWebviewJavaScriptOperations : public QObject {
+class BatJavaScriptOperations : public QObject {
     Q_OBJECT
 public:
     /*
      *  Close window
-     *  $API.closeWindow();
+     *  BAT.closeWindow();
      *
      **/
     Q_INVOKABLE void closeWindow () {
@@ -48,7 +47,7 @@ public:
 
     /*
      *  Resize
-     *  $API.resize(width, height);
+     *  BAT.resize(width, height);
      *
      **/
     Q_INVOKABLE void resize (int width, int height) {
@@ -62,7 +61,7 @@ public:
 
     /*
      *  Set window flags
-     *  $API.setWindowFlags (type)
+     *  BAT.setWindowFlags (type)
      *      - UNDECORATED
      *
      * */
@@ -111,7 +110,7 @@ public:
 
     /*
      *  Set window state
-     *  $API.setWindowState (value)
+     *  BAT.setWindowState (value)
      *      - MAXIMIZED
      *      - MINIMIZED
      *      - FULLSCREEN
@@ -147,7 +146,7 @@ public:
 
     /*
      *  Get window size
-     *  $API.getWindowSize ()
+     *  BAT.getWindowSize ()
      * */
     Q_INVOKABLE QObject *getWindowSize () {
 
@@ -167,7 +166,7 @@ public:
 
     /*
      *  Get screen size
-     *  $API.getScreenSize ()
+     *  BAT.getScreenSize ()
      *
      * */
     Q_INVOKABLE QObject *getScreenSize () {
@@ -187,7 +186,7 @@ public:
 
     /*
      *  Set window position
-     *  $API.setWindowPosition (left, top)
+     *  BAT.setWindowPosition (left, top)
      * */
     Q_INVOKABLE void setWindowPosition (int left, int top) {
 
@@ -200,7 +199,7 @@ public:
 
     /*
      *  Get window position
-     *  $API.getWindowPosition (left, top)
+     *  BAT.getWindowPosition (left, top)
      * */
     Q_INVOKABLE QObject *getWindowPosition () {
 
@@ -219,7 +218,7 @@ public:
 
     /*
      *  Get mouse position
-     *  $API.getMousePosition()
+     *  BAT.getMousePosition()
      *
      * */
     Q_INVOKABLE QObject *getMousePosition () {
@@ -239,7 +238,7 @@ public:
 
     /*
      *  Set mouse position
-     *  $API.setMousePosition()
+     *  BAT.setMousePosition()
      *
      * */
     Q_INVOKABLE void setMousePosition (int x, int y) {
@@ -253,7 +252,7 @@ public:
 
     /*
      *  Creates a new window
-     *  $API.newWindow(options);
+     *  BAT.newWindow(options);
      * */
     // TODO Is this really needed?
     // Q_INVOKABLE void newWindow () {
@@ -263,7 +262,7 @@ public:
 
     /*
      *  Sets the title of the current window
-     *  $API.setWindowTitle(newTitle)
+     *  BAT.setWindowTitle(newTitle)
      *
      * */
     Q_INVOKABLE void setWindowTitle (QString newTitle) {
@@ -277,7 +276,7 @@ public:
 
     /*
      *  Writes content to file
-     *  $API.writeFile (path, content);
+     *  BAT.writeFile (path, content);
      *
      * */
     Q_INVOKABLE void writeFile (QString path, QString content) {
@@ -299,7 +298,7 @@ public:
 
     /*
      *  Returns the content content of a file
-     *  $API.readFile (path);
+     *  BAT.readFile (path);
      *
      * */
     Q_INVOKABLE QString readFile (QString path) {
@@ -322,7 +321,7 @@ public:
 
     /*
      *  Debug
-     *  $API.debug(message)
+     *  BAT.debug(message)
      *
      * */
     Q_INVOKABLE void debug (QString message) {
@@ -337,7 +336,7 @@ public:
 
     /*
      *  Insepct element
-     *  $API.inspectElement()
+     *  BAT.inspectElement()
      *
      * */
     Q_INVOKABLE void inspectElement () {
@@ -355,7 +354,7 @@ public:
 
     /*
      *  Run bash commands
-     *  $API.debug(command)
+     *  BAT.debug(command)
      *
      * */
     Q_INVOKABLE QObject *runBash (QString command) {
@@ -382,7 +381,7 @@ public:
 
     /*
      *  Get application arguments
-     *  $API.argv()
+     *  BAT.argv()
      *
      * */
     Q_INVOKABLE QStringList argv () {
@@ -397,7 +396,7 @@ public:
 
     /*
      *  Enable/Disable debug mode
-     *  $API.setDebugMode(true/false)
+     *  BAT.setDebugMode(true/false)
      *
      * */
     Q_INVOKABLE void setDebugMode (bool debug) {
@@ -411,7 +410,7 @@ public:
 
     /*
      *  Get debug mode
-     *  $API.getDebugMode(true/false)
+     *  BAT.getDebugMode(true/false)
      *
      * */
     Q_INVOKABLE bool getDebugMode () {
@@ -425,7 +424,7 @@ public:
 
     /*
      *  Get dirname
-     *  $API.getDirname()
+     *  BAT.getDirname()
      *
      * */
     Q_INVOKABLE QString getDirname () {
@@ -440,88 +439,105 @@ public:
 
 int main(int argc, char *argv[])
 {
-
     QApplication app(argc, argv);
-
-    // build the web view
     QWebView *view = new QWebView();
 
-    // enable local storage
+    // Local storage
     QWebSettings *settings = view->settings();
     settings->setAttribute(QWebSettings::LocalStorageEnabled, true);
     settings->setLocalStoragePath("/tmp");
 
+    QCoreApplication::setApplicationName("BAT");
+    QCoreApplication::setApplicationVersion("1.0.0");
+
+    // Defaults
+    int WINDOW_WIDTH = 800;
+    int WINDOW_HEIGHT = 600;
+
+    // Parse command line arguments
+    QCommandLineParser parser;
+    parser.addHelpOption();
+    parser.addVersionOption();
+
+    QCommandLineOption titleOption(QStringList() << "t" << "title", "Sets the window title on start.", "title", "BAT");
+    parser.addOption(titleOption);
+
+    QCommandLineOption sizeOption(QStringList() << "s" << "size", "Sets the BAT window size.", "WxH", QString::number(WINDOW_WIDTH) + "x" + QString::number(WINDOW_HEIGHT));
+    parser.addOption(sizeOption);
+
+    QCommandLineOption sourceOption(QStringList() << "d" << "document", "The path to the document you want BAT to load.", "path/to/file.html", "~/.bat/welcome.html");
+    parser.addOption(sourceOption);
+
+    QCommandLineOption undecorateOption(QStringList() << "u" << "undecorate", "Starts BAT with an undecorated window.");
+    parser.addOption(undecorateOption);
+
+    QCommandLineOption positionMost(QStringList() << "m" << "most", "If TOP is provided, then the window is keept on the top of the other windows. If BOTTOM is provided, the window will be in the behind of all windows.");
+    parser.addOption(positionMost);
+
+    QCommandLineOption debugOption("debug", QCoreApplication::translate("main", "Starts BAT in the debug mode."));
+    parser.addOption(debugOption);
+
+    parser.process(app);
+
+    // Set the webview global
     webView = view;
 
-    // get the html path
-    QString HTML_PATH       = QString(argv[1]);
+    // Get the HTML path
+    QString htmlPath = parser.value(sourceOption);
 
-    // the path is NOT a web site url
-    if (!HTML_PATH.startsWith("http"))
+    // Handle local files
+    if (!htmlPath.startsWith("http"))
     {
-        // if it's NOT an absolute file path
-        if (!HTML_PATH.startsWith("/")) {
-
-            // get the absolute path from the local machine
-            HTML_PATH = "file://" + QDir::current().absolutePath() + QDir::separator() + HTML_PATH;
+        // Absolute path
+        if (htmlPath.startsWith("/")) {
+            htmlPath = "file://" + htmlPath;
+        } else if (htmlPath.startsWith("~")) {
+            htmlPath = "file://" + htmlPath.replace(QRegularExpression("^~"), QDir::homePath());
         } else {
-
-            // we have an absolute path
-            HTML_PATH = "file://" + HTML_PATH;
+            htmlPath = "file://" + QDir::current().absolutePath() + QDir::separator() + htmlPath;
         }
     }
 
-    // set window width and height
-    int     WINDOW_WIDTH    = QString(argv[2]).toInt();
-    int     WINDOW_HEIGHT   = QString(argv[3]).toInt();
+    QString size = parser.value(sizeOption);
 
-    // handle "UNDECORATED" flag
-    if (QString(argv[4]) == "UNDECORATED") {
-        // set background transparent for webview
+    // Get window width and height
+    int windowWidth = size.split('x')[0].toInt();
+    int windowHeight = size.split('x')[1].toInt();
+
+    // Handle "UNDECORATED" flag
+    if (parser.isSet(undecorateOption)) {
         QPalette pal = view->palette();
         pal.setBrush(QPalette::Base, Qt::transparent);
         view->page()->setPalette(pal);
         view->setAttribute(Qt::WA_TranslucentBackground);
-
         view->setWindowFlags(Qt::FramelessWindowHint | view->windowFlags());
     }
 
-    QStringList appArgv = applicationArguments = app.arguments();
-    if (appArgv.contains("--debug")) {
-
+    // Handle the debug mode
+    if (parser.isSet(debugOption)) {
         qDebug() << " * Debug mode.";
         debugMode = true;
         view->page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
-
         QWebInspector inspector;
         inspector.setPage(view->page());
         inspector.setVisible(true);
     }
 
-    if (QString(argv[5]) == "BOTTOM_MOST") {
+    QString btMost = parser.value(positionMost);
+    if (btMost == "BOTTOM") {
         view->setWindowFlags(Qt::WindowStaysOnBottomHint | view->windowFlags());
-    } else if (QString(argv[5]) == "TOP_MOST") {
+    } else if (btMost == "TOP") {
         view->setWindowFlags(Qt::WindowStaysOnTopHint    | view->windowFlags());
     }
 
-    // add the public api functions
-    view->page()->mainFrame()->addToJavaScriptWindowObject("$API", new JohnnysWebviewJavaScriptOperations);
+    // Add the JavaScript API
+    view->page()->mainFrame()->addToJavaScriptWindowObject("BAT", new BatJavaScriptOperations);
 
-    // resize the window
-    view->resize(WINDOW_WIDTH, WINDOW_HEIGHT);
-
-    // load that HTML file or website
-    view->load(QUrl(HTML_PATH));
-
-    // show the web view
+    view->resize(windowWidth, windowHeight);
+    view->load(QUrl(htmlPath));
     view->show();
 
-    // if --exit was provided
-    if (appArgv.contains("--exit")) {
-        qDebug() << "Exiting...";
-        QApplication::quit();
-    }
-
+    webView->setWindowTitle(parser.value(titleOption));
     return app.exec();
 }
 

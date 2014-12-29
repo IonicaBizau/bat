@@ -1,8 +1,8 @@
-Package: johnnys-webview
-Version: 0.1.0
+Package: bat
+Version: 1.0.0
 Architecture: all
 Maintainer: Ionică Bizău <bizauionica@gmail.com>
-Depends: qt5-default, libqt5webkit5-dev, qtquick1-5-dev, qtlocation5-dev, qtsensors5-dev, qtdeclarative5-dev, libsqlite3-dev
+Depends: qt5-default, libqt5webkit5-dev, qtquick1-5-dev, qtlocation5-dev, qtdeclarative5-dev, libsqlite3-dev
 Section: extras
-Homepage: https://github.com/IonicaBizau/johnnys-webview
-Description: A simple web page loader as a desktop application.
+Homepage: https://github.com/IonicaBizau/bat
+Description: This is a minimalist application that is used for building native desktop applications using WEB technologies.

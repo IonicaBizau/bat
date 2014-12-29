@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body style="background:white">
+        <script>
+            setInterval(function () {
+                var pos = BAT.getMousePosition();
+                document.getElementById("mouse-pos").innerHTML = JSON.stringify(pos);
+            }, 10);
+        </script>
+        <h1 id="mouse-pos"></h1>
+    </body>
+</html>
