@@ -15,8 +15,30 @@ $ wget https://github.com/IonicaBizau/bat/raw/master/deb/64bit/64-dev-release.de
 $ sudo dpkg -i 64-dev-release.deb
 ```
 
-### OS X & Windows
-There are no binaries available for OS X and Windows. The application needs to be compiled for these platforms. Contributions are welcome! :smile:
+### Mac OS X
+You can compile it from source, using the scripts or, just download the latest disk image using the following commands:
+
+```sh
+# Download the dmg disk image
+$ wget https://github.com/IonicaBizau/bat/raw/master/dists/osx/Bat.dmg
+
+# Mount the disk image file
+$ hdiutil attach Bat.dmg
+```
+
+Then copy the `Bat` application to Application path.
+
+#### Usage
+The application bundle, which Qt compiles, provides all libraries that `Bat` needs to run on Mac OS X.
+To run the `Bat` from command-line or use it in your personal applications:
+
+```sh
+# Call the binary package
+$ /path/to/Bat.app/Contents/MacOS/Bat
+```
+
+### Windows
+There are no binaries available for Windows. The application needs to be compiled on Windows. Contributions are welcome! :smile:
 
 ## Help
 
