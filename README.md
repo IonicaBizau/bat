@@ -33,6 +33,9 @@ The application bundle, which Qt compiles, provides all libraries that `Bat` nee
 To run the `Bat` from command-line or use it in your personal applications:
 
 ```sh
+# Link Bat binary package to provide access globally
+$ sudo ln -s /path/to/Bat.app/Contents/MacOS/Bat /usr/bin/bat
+
 # Call the binary package
 $ /path/to/Bat.app/Contents/MacOS/Bat
 ```
