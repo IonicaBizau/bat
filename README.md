@@ -1,6 +1,6 @@
-![BAT - Build Awesome Tools For Desktop using WEB Technologies](/resources/header.png)
+[![BAT - Build Awesome Tools For Desktop using WEB Technologies](/resources/header.png)](http://ionicabizau.github.io/bat/)
 
-This is a minimalist application that is used for building native desktop applications using WEB technologies.
+A minimalist tool for building native desktop applications using WEB technologies.
 
 ## Installation
 
