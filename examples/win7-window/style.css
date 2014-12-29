@@ -1,0 +1,130 @@
+html, body {
+    background: transparent;
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.resize {
+    width: 50px;
+    height: 50px;
+    background: red;
+}
+
+
+@-webkit-keyframes pulse_animation {
+    0% { -webkit-transform: scale(1); }
+    16% { -webkit-transform: scale(1); }
+    33% { -webkit-transform: scale(1.2); }
+    50% { -webkit-transform: scale(1); }
+    66% { -webkit-transform: scale(1); }
+    83% { -webkit-transform: scale(1.2); }
+}
+
+.pulse {
+    -webkit-animation-name: 'pulse_animation';
+    -webkit-animation-duration: 1500ms;
+    -webkit-transform-origin: 50% 60%;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+
+h1 { cursor: default; }
+
+nav > * {
+    outline: none;
+}
+
+* {
+    margin:0;
+    padding:0;
+}
+html {
+    height:100%;
+    width:100%;
+}
+body {
+    height:100%;
+    width:100%;
+    overflow:hidden;
+}
+.css3-windows-7 .fenster {
+    -moz-border-radius:7px;
+    -webkit-border-radius:7px;
+    border-radius:7px;
+    -moz-box-shadow:0 0 0 1px #eee inset, 0 0 15px rgba(0,0,0,0.9);
+    -webkit-box-shadow:0 0 0 1px #eee inset, 0 0 15px rgba(0,0,0,0.9);
+    box-shadow:0 0 0 1px #eee inset, 0 0 15px rgba(0,0,0,0.9);
+    background-color:rgba(160,160,160,0.4);
+    border:1px solid #000;
+    left: 10px;
+    padding-bottom:46px;
+    position:absolute;
+    top: 10px;
+    right: 10px;
+    bottom: 10px;
+    z-index:1;
+}
+.css3-windows-7 .fenster .titel {
+    background:transparent url(http://ionicabizau.net/images/logo.png) no-repeat 6px 6px;
+    background-size: 16px 16px;
+    color:#000;
+    cursor:move;
+    font:normal 12px/16px "Segoe UI",Arial,sans-serif;
+    height:16px;
+    overflow:hidden;
+    padding:6px 0 6px 28px;
+    text-overflow:ellipsis;
+    text-shadow:0 0 1px #fff, 3px 3px 5px #fff, -3px -3px 5px #fff, -3px 3px 5px #fff, 3px -3px 5px #fff;
+    white-space:nowrap;
+}
+.css3-windows-7 .fenster .inhalt {
+    -moz-border-radius:1px;
+    -webkit-border-radius:1px;
+    border-radius:1px;
+    -moz-box-shadow:0 0 0 1px rgba(255,255,255,0.65);
+    -webkit-box-shadow:0 0 0 1px rgba(255,255,255,0.65);
+    box-shadow:0 0 0px 1px rgba(255,255,255,0.65);
+    background-color:#fff;
+    border:1px solid #666;
+    color:#000;
+    font:normal 12px/18px arial,sans-serif;
+    height:100%;
+    margin:0 6px;
+    overflow:auto;
+    padding:5px;
+    position:relative;
+}
+.css3-windows-7 .inhalt p {
+    margin-bottom:10px;
+}
+.css3-windows-7 .inhalt img {
+    background-color:#f1f1f1;
+    border:1px solid #ddd;
+    float:left;
+    margin:0 20px 10px 0;
+    padding:1px;
+}
+
+/* Resizeable */
+.ui-resizable-handle{display:block;position:absolute;}
+.ui-resizable-disabled .ui-resizable-handle,
+.ui-resizable-autohide .ui-resizable-handle{display:none;}
+.ui-resizable-n,.ui-resizable-s{height:7px;left:0;width:100%;}
+.ui-resizable-n{cursor:n-resize;top:-5px;}
+.ui-resizable-s{bottom:-5px;cursor:s-resize;}
+.ui-resizable-e,.ui-resizable-w{height:100%;top:0;width:7px;}
+.ui-resizable-e{cursor:e-resize;right:-5px;}
+.ui-resizable-w{cursor:w-resize;left:-5px;}
+.ui-resizable-se,.ui-resizable-sw,
+.ui-resizable-nw,.ui-resizable-ne{height:12px;width:12px;}
+.ui-resizable-se{bottom:0;cursor:se-resize;right:0;}
+.ui-resizable-sw{bottom:0;cursor:sw-resize;left:0;}
+.ui-resizable-nw{cursor:nw-resize;left:0;top:0;}
+.ui-resizable-ne {cursor:ne-resize;right:0;top:0;}
