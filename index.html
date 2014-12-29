@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>bat</title>
+        <!-- Mobile support -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Twitter Bootstrap -->
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/css/bootstrap.min.css"
+        rel="stylesheet">
+
+        <!-- Material Design for Bootstrap -->
+        <link href="css/material-wfont.min.css" rel="stylesheet">
+        <link href="css/ripples.min.css" rel="stylesheet">
+        <link href="css/custom.css" rel="stylesheet">
+
+        <!-- Font Awesome -->
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+        rel="stylesheet">
+
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    </head>
+    <body>
+        <a href="https://github.com/IonicaBizau/bat">
+            <img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67"
+            alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png">
+        </a>
+        <header class="text-center">
+            <div class="container">
+                <img src="https://raw.githubusercontent.com/IonicaBizau/bat/master/resources/logo-t.png"
+                alt="">
+                <h1 class="title">BAT</h1>
+                <p>A minimalist tool for building native desktop applications using WEB
+                    technologies.</p>
+                <a class="btn btn-danger" href="https://github.com/IonicaBizau/bat/zipball/master">
+                    <i class="fa fa-cloud-download"></i> Download .zip
+                </a>
+                <a class="btn btn-danger" href="https://github.com/IonicaBizau/bat/tarball/master">
+                    <i class="fa fa-file-archive-o"></i> Download .tar.gz
+                </a>
+                <a class="btn btn-danger" href="https://github.com/IonicaBizau/bat/">
+                    <i class="fa fa-github"></i> View on GitHub
+                </a>
+                <iframe src="http://ghbtns.com/github-btn.html?user=IonicaBizau&repo=bat&type=watch&size=large&count=true" allowtransparency="true" frameborder="0" scrolling="0" style="height: 30px;
+                    width: 111px;
+                    margin-left: 4px;
+                    position: relative;
+                    top: 10px;"></iframe>
+            </div>
+        </header>
+        <article>
+            <div class="container">
+                <h1 class="text-center page-header">Installation</h1>
+                <pre># Download the deb package
+$ wget https://github.com/IonicaBizau/bat/raw/master/deb/64bit/64-dev-release.deb
+
+# And install it
+$ sudo dpkg -i 64-dev-release.deb</pre>
+                <h1 class="text-center page-header">Demo</h1>
+                <p>We can create custom windows with CSS, HTML and JS, loading them with
+                    BAT.</p>
+                <img src="https://raw.githubusercontent.com/IonicaBizau/bat/master/resources/demo.png"
+                class="img-thumbnail">
+                <h1 class="text-center page-header">JavaScript API</h1>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Function name</th>
+                            <th>Arguments</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>BAT.closeWindow()</code>
+                            </td>
+                            <td>No arguments</td>
+                            <td>Closes the window</td>
+                        </tr>
+                        <tr>
+                            <td><code>BAT.resize(width, height);</code>
+                            </td>
+                            <td>
+                                <code>width</code> - the new width of the window,
+                                <code>height</code> - the new height of the window</td>
+                            <td>Resizes the window</td>
+                        </tr>
+                        <tr>
+                            <td><code>BAT.setWindowFlags(type)</code>
+                            </td>
+                            <td>
+                                <ul class="task-list">
+                                    <li>
+                                        <code>UNDECORATED</code> - undecorates the window</li>
+                                    <li>
+                                        <code>BOTTOM_MOST</code> - puts the window on
+                                        the background</li>
+                                    <li>
+                                        <code>TOP_MOST</code> - puts the window on the
+                                        top</li>
+                                    <li>
+                                        <code>REMOVE_MINIMIZE</code> - removes the minimize
+                                        button</li>
+                                    <li>
+                                        <code>REMOVE_MAXIMIZE</code> - removes the maximize
+                                        button</li>
+                                    <li>
+                                        <code>REMOVE_CLOSE</code> - removes the close
+                                        button</li>
+                                </ul>
+                            </td>
+                            <td>Sets the window flags</td>
+                        </tr>
+                        <tr>
+                            <td><code>BAT.setWindowState(value)</code>
+                            </td>
+                            <td>One of the following values:
+                                <code>MAXIMIZED</code>,
+                                <code>MINIMIZED</code>,
+                                <code>FULLSCREEN</code>,
+                                <code>ACTIVE</code>,
+                                <code>RESTORED</code>
+                            </td>
+                            <td>Sets the window state</td>
+                        </tr>
+                        <tr>
+                            <td><code>BAT.getWindowSize()</code>
+                            </td>
+                            <td>No argumnets</td>
+                            <td>Returns an object that contains <code>width</code> and <code>height</code> fields
+                                that represent the sizes of the window.</td>
+                        </tr>
+                        <tr>
+                            <td><code>BAT.getWindowPosition()</code>
+                            </td>
+                            <td>No argumnets</td>
+                            <td>Returns an object that contains <code>top</code> and <code>left</code> fields
+                                that represent the coordinates of the window.</td>
+                        </tr>
+                        <tr>
+                            <td><code>BAT.setWindowPosition(top, left)</code>
+                            </td>
+                            <td>
+                                <code>top</code> and <code>left</code> coordinates for
+                                the new position of the window</td>
+                            <td>Sets the new position of the window on the screen.</td>
+                        </tr>
+                        <tr>
+                            <td><code>BAT.getMousePosition()</code>
+                            </td>
+                            <td>No argumnets</td>
+                            <td>Gets the mouse position on the screen.</td>
+                        </tr>
+                        <tr>
+                            <td><code>BAT.setMousePosition(x, y)</code>
+                            </td>
+                            <td>
+                                <code>x</code> - the x coordinate of the mouse,
+                                <code>y</code> - the y coordinate of the mouse</td>
+                            <td>Sets the mouse position on the screen.</td>
+                        </tr>
+                        <tr>
+                            <td><code>BAT.debug(message)</code>
+                            </td>
+                            <td>
+                                <code>message</code> - string that will be printed in
+                                the console</td>
+                            <td>Outputs a message in the terminal.</td>
+                        </tr>
+                        <tr>
+                            <td><code>BAT.setWindowTitle(newTitle)</code>
+                            </td>
+                            <td>
+                                <code>newTitle</code> - string that represents the new
+                                title that you want to set to the window</td>
+                            <td>Sets the new window title.</td>
+                        </tr>
+                        <tr>
+                            <td><code>BAT.inspectElement()</code>
+                            </td>
+                            <td>No arguments</td>
+                            <td>Opens the BAT developer tools window.</td>
+                        </tr>
+                        <tr>
+                            <td><code>BAT.runBash(command)</code>
+                            </td>
+                            <td>
+                                <code>command</code> - string that represents the command
+                                that you want to run in the bash via BAT.</td>
+                            <td>Runs a bash command.</td>
+                        </tr>
+                        <tr>
+                            <td><code>BAT.getScreenSize()</code>
+                            </td>
+                            <td>No arguments</td>
+                            <td>Returns an object that contains <code>width</code> and <code>height</code> fields
+                                that represent the sizes of the screen.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2 class="text-center">How to hack?</h2>
+                <p>Do you want to contribute? Great! There are few steps to do this.</p>
+                <ol class="task-list">
+                    <li>File an issue in the repository, using the bug tracker, describing
+                        the contribution you'd like to make. This will help us to get
+                        you started on the right foot.</li>
+                    <li>Fork the project in your account and create a new branch:
+                        <code>your-great-feature</code>.</li>
+                    <li>Commit your changes in that branch.</li>
+                    <li>Open a pull request, and reference the initial issue in the pull
+                        request message.
+                    </li>
+                </ol>
+            </div>
+        </article>
+        <footer>
+            <div class="container">
+                <i class="fa fa-code"></i> with <i class="fa fa-heart"></i> and JavaScript
+                by the <strong><a href="http://github.com/IonicaBizau">@IonicaBizau</a></strong>.
+            </div>
+        </footer>
+    </body>
+</html>
