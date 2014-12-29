@@ -28,8 +28,8 @@ $ hdiutil attach Bat.dmg
 
 Then copy the `Bat` application to Application path.
 
-# Usage
-The application bundle that Qt compile provides all libraries that `Bat` needs to run on Mac OS X.
+#### Usage
+The application bundle, which Qt compiles, provides all libraries that `Bat` needs to run on Mac OS X.
 To run the `Bat` from command-line or use it in your personal applications:
 
 ```sh
