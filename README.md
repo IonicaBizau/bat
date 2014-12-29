@@ -16,7 +16,7 @@ $ sudo dpkg -i 64-dev-release.deb
 ```
 
 ### OS X & Windows
-Not yet compatible. The application needs to be on these platforms.
+There are not any binaries available. The application needs to be compiled on these platforms. Contributions are welcome! :smile:
 
 ## Help
 
