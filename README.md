@@ -16,7 +16,7 @@ $ sudo dpkg -i 64-dev-release.deb
 ```
 
 ### OS X & Windows
-There are not any binaries available. The application needs to be compiled on these platforms. Contributions are welcome! :smile:
+There are no binaries available for OS X and Windows. The application needs to be compiled for these platforms. Contributions are welcome! :smile:
 
 ## Help
 
