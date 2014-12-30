@@ -9,35 +9,29 @@ You can compile it from source, using the scripts or, just download the latest b
 
 ```sh
 # Download the deb package
-$ wget https://github.com/IonicaBizau/bat/raw/master/deb/64bit/64-dev-release.deb
+$ wget https://github.com/IonicaBizau/bat/raw/master/dists/deb/64bit/64-dev-release.deb
 
 # And install it
 $ sudo dpkg -i 64-dev-release.deb
 ```
 
 ### Mac OS X
-You can compile it from source, using the scripts or, just download the latest disk image using the following commands:
+
+You can just download the latest binary package using the following commands:
 
 ```sh
-# Download the dmg disk image
-$ wget https://github.com/IonicaBizau/bat/raw/master/dists/osx/Bat.dmg
+# Download the binary package
+# Using curl
+$ sudo curl https://github.com/IonicaBizau/bat/raw/master/dists/osx/Bat -o /usr/bin/bat
 
-# Mount the disk image file
-$ hdiutil attach Bat.dmg
+# (OR) Using wget
+$ sudo wget -O /usr/bin/bat https://github.com/IonicaBizau/bat/raw/master/dists/osx/Bat
 ```
 
-Then copy the `Bat` application to Application path.
-
-#### Usage
-The application bundle, which Qt compiles, provides all libraries that `Bat` needs to run on Mac OS X.
-To run the `Bat` from command-line or use it in your personal applications:
-
+If you prefer to compile it from source, execute the following command(inside `source` directory) before running the provided scripts:
 ```sh
-# Link Bat binary package to provide access globally
-$ sudo ln -s /path/to/Bat.app/Contents/MacOS/Bat /usr/bin/bat
-
-# Call the binary package
-$ /path/to/Bat.app/Contents/MacOS/Bat
+# Add CONFIG -= app_bundle into Bat.pro file
+$ echo "CONFIG -= app_bundle" >> Bat.pro
 ```
 
 ### Windows
