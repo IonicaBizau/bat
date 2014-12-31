@@ -1,8 +1,0 @@
-Package: Bat
-Version: 1.0.0
-Architecture: amd64
-Maintainer: Ionică Bizău <bizauionica@gmail.com>
-Depends: qt5-default, libqt5webkit5-dev, qtquick1-5-dev, qtlocation5-dev, qtdeclarative5-dev, libsqlite3-dev
-Section: extras
-Homepage: https://github.com/IonicaBizau/bat
-Description: A minimalist tool for building native desktop applications using WEB technologies.
