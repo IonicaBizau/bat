@@ -77,35 +77,33 @@ public:
                 << "TOP_MOST"
                 << "REMOVE_MINIMIZE"
                 << "REMOVE_MAXIMIZE"
-                << "REMOVE_CLOSE";
+                << "REMOVE_CLOSE"
+                << "TOOLTIP";
 
         switch (options.indexOf(type)) {
             case 0:
                 webView->setWindowFlags(Qt::FramelessWindowHint | webView->windowFlags());
-                webView->show();
                 break;
             case 1:
                 webView->setWindowFlags(Qt::WindowStaysOnBottomHint | webView->windowFlags());
-                webView->show();
                 break;
             case 2:
                 webView->setWindowFlags(Qt::WindowStaysOnTopHint | webView->windowFlags());
-                webView->show();
                 break;
             case 3:
                 webView->setWindowFlags(webView->windowFlags() & ~Qt::WindowMinimizeButtonHint);
-                webView->show();
                 break;
             case 4:
                 webView->setWindowFlags(webView->windowFlags() & ~Qt::WindowMaximizeButtonHint);
-                webView->show();
                 break;
             case 5:
                 webView->setWindowFlags(webView->windowFlags() & ~Qt::WindowCloseButtonHint);
-                webView->show();
+            case 6:
+                webView->setWindowFlags(webView->windowFlags() & ~Qt::ToolTip);
                 break;
             // TODO Other cases
         }
+        webView->show();
     }
 
     /*
@@ -474,6 +472,9 @@ int main(int argc, char *argv[])
     QCommandLineOption undecorateOption(QStringList() << "u" << "undecorate", "Starts BAT with an undecorated window.");
     parser.addOption(undecorateOption);
 
+    QCommandLineOption toolTipOption(QStringList() << "t" << "tooltip", "Starts BAT with a tooltip window.");
+    parser.addOption(toolTipOption);
+
     QCommandLineOption positionMost(QStringList() << "m" << "most", "If TOP is provided, then the window is keept on the top of the other windows. If BOTTOM is provided, the window will be in the behind of all windows.");
     parser.addOption(positionMost);
 
@@ -516,6 +517,11 @@ int main(int argc, char *argv[])
         view->setWindowFlags(Qt::FramelessWindowHint | view->windowFlags());
     }
 
+    // Tool tip
+    if (parser.isSet(toolTipOption)) {
+        view->setWindowFlags(Qt::ToolTip | view->windowFlags());
+    }
+
     // Handle the debug mode
     if (parser.isSet(debugOption)) {
         qDebug() << " * Debug mode.";
@@ -525,6 +531,7 @@ int main(int argc, char *argv[])
         inspector.setPage(view->page());
         inspector.setVisible(true);
     }
+
 
     QString btMost = parser.value(positionMost);
     if (btMost == "BOTTOM") {
