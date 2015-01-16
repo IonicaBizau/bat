@@ -1,3 +1,5 @@
+deb_dir=./dists/deb
+
 # compile
 ./utils/compile.sh
 
@@ -8,10 +10,9 @@
 DATE=$(date +"%m-%d-%y-%T")
 
 # copy the file in the releases directory
-cp ./deb/64bit/64-dev-release.deb ./releases/64bit-bat-$DATE.deb
+cp $deb_dir/64bit/dev-release.deb ./releases/64bit-bat-$DATE.deb
 
 ## git commands
-
 # add
 git add ./releases
 git commit -m "Release build - $DATE"
