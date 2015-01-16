@@ -448,7 +448,7 @@ int main(int argc, char *argv[])
     settings->setLocalStoragePath("/tmp");
 
     QCoreApplication::setApplicationName("BAT");
-    QCoreApplication::setApplicationVersion("1.0.0");
+    QCoreApplication::setApplicationVersion("1.1.0");
 
     // Defaults
     int WINDOW_WIDTH = 800;
