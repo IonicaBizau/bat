@@ -19,6 +19,6 @@ git commit -m "Release build - $DATE"
 # git push
 
 # dev update
-git add ./deb
+git add ./dists
 git commit -m "Dev release - $DATE"
 # git push
