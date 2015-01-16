@@ -472,7 +472,7 @@ int main(int argc, char *argv[])
     QCommandLineOption undecorateOption(QStringList() << "u" << "undecorate", "Starts BAT with an undecorated window.");
     parser.addOption(undecorateOption);
 
-    QCommandLineOption toolTipOption(QStringList() << "t" << "tooltip", "Starts BAT with a tooltip window.");
+    QCommandLineOption toolTipOption(QStringList() << "tt" << "tooltip", "Starts BAT with a tooltip window.");
     parser.addOption(toolTipOption);
 
     QCommandLineOption positionMost(QStringList() << "m" << "most", "If TOP is provided, then the window is keept on the top of the other windows. If BOTTOM is provided, the window will be in the behind of all windows.");
