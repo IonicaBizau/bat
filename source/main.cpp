@@ -454,6 +454,9 @@ int main(int argc, char *argv[])
     int WINDOW_WIDTH = 800;
     int WINDOW_HEIGHT = 600;
 
+    // Save arguments
+    applicationArguments = app.arguments();
+
     // Parse command line arguments
     QCommandLineParser parser;
     parser.addHelpOption();
