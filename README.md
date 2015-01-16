@@ -51,6 +51,7 @@ Options:
   -d, --document <path/to/file.html>  The path to the document you want BAT to
                                       load.
   -u, --undecorate                    Starts BAT with an undecorated window.
+  --tt, --tooltip                     Starts BAT with a tooltip window.
   -m, --most                          If TOP is provided, then the window is
                                       keept on the top of the other windows. If
                                       BOTTOM is provided, the window will be in
@@ -98,6 +99,7 @@ The following functions are implemented for the Javascript API.
           <li><code>REMOVE_MINIMIZE</code> - removes the minimize button</li>
           <li><code>REMOVE_MAXIMIZE</code> - removes the maximize button</li>
           <li><code>REMOVE_CLOSE</code> - removes the close button</li>
+          <li><code>TOOLTIP</code> - converts the window in a tooltip</li>
         </ul>
       </td>
       <td>Sets the window flags</td>
