@@ -13,7 +13,7 @@ $ wget https://github.com/IonicaBizau/bat/raw/master/dists/deb/64bit/dev-release
 
 
 # And install it
-$ sudo dpkg -i 64-dev-release.deb
+$ sudo dpkg -i dev-release.deb
 ```
 
 ### Mac OS X
