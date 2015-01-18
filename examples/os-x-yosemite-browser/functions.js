@@ -5,9 +5,16 @@ $(document).ready(function () {
         return;
     }
 
-    // TODO
-    $(".title-value").text("github-org-members.js");
-    $("#browser").attr("src", "file:///home/ionicabizau/Documents/github-org-members.js/example/index.html");
+    var argv = BAT.argv()
+      , src = BAT.argv().slice(-2)[0]
+      , title = BAT.argv().slice(-2)[1]
+      ;
+
+    BAT.debug(src);
+    BAT.debug(title);
+
+    $(".title-value").text(title);
+    $("#browser").attr("src", src);
 
     $(".close").on("click", BAT.closeWindow);
 
