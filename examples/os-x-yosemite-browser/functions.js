@@ -7,11 +7,12 @@ $(document).ready(function () {
 
     var argv = BAT.argv()
       , src = BAT.argv().slice(-2)[0]
-      , title = BAT.argv().slice(-2)[1]
+      , title = BAT.argv().slice(-1)[0]
       ;
 
     BAT.debug(src);
     BAT.debug(title);
+    BAT.debug(JSON.stringify(argv));
 
     $(".title-value").text(title);
     $("#browser").attr("src", src);
