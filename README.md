@@ -182,7 +182,5 @@ Do you want to contribute? Great! There are few steps to do this.
 4. Open a pull request, and reference the initial issue in the pull request
    message.
 
-
-
 ## Licence
 See the [LICENSE](/LICENSE) file.
