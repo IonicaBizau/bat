@@ -1,21 +1,18 @@
-[![BAT - Build Awesome Tools For Desktop using WEB Technologies](/resources/header.png)](http://ionicabizau.github.io/bat/)
+# [![BAT - Build Awesome Tools For Desktop using WEB Technologies](/resources/header.png)](http://ionicabizau.github.io/bat/) [![Support this project][donate-now]][paypal-donations]
 
 A tiny tool for building native desktop applications using WEB technologies.
 
 ## Installation
-
 ### Linux
+
 You can compile it from source, using the scripts or, just download the latest binary using the following commands:
 
 ```sh
 # Download the deb package
 $ wget https://github.com/IonicaBizau/bat/raw/master/dists/deb/64bit/dev-release.deb
-
-
 # And install it
 $ sudo dpkg -i dev-release.deb
 ```
-
 ### Mac OS X
 
 You can just download the latest binary package using the following commands:
@@ -30,16 +27,16 @@ $ sudo wget -O /usr/bin/bat https://github.com/IonicaBizau/bat/raw/master/dists/
 ```
 
 If you prefer to compile it from source, execute the following command(inside `source` directory) before running the provided scripts:
+
 ```sh
 # Add CONFIG -= app_bundle into Bat.pro file
 $ echo "CONFIG -= app_bundle" >> Bat.pro
 ```
-
 ### Windows
+
 There are no binaries available for Windows. The application needs to be compiled on Windows. Contributions are welcome! :smile:
 
 ## Help
-
 ```sh
 $ bat --help
 Usage: bat [options]
@@ -59,8 +56,6 @@ Options:
                                       the behind of all windows.
   --debug                             Starts BAT in the debug mode.
 ```
-
-
 ## Demo
 
 ![Demo](/resources/demo.png)
@@ -170,17 +165,17 @@ The following functions are implemented for the Javascript API.
   </tbody>
 </table>
 
-## How to hack?
-Do you want to contribute? Great! There are few steps to do this.
+## How to contribute
+Have an idea? Found a bug? See [how to contribute][contributing].
 
-1. File an issue in the repository, using the bug tracker, describing the
-   contribution you'd like to make. This will help us to get you started on the
-   right foot.
-2. Fork the project in your account and create a new branch:
-   `your-great-feature`.
-3. Commit your changes in that branch.
-4. Open a pull request, and reference the initial issue in the pull request
-   message.
+## License
 
-## Licence
-See the [LICENSE](/LICENSE) file.
+[MIT][license] © [Ionică Bizău][website]
+
+[paypal-donations]: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RVXDDLKKLQRJW
+[donate-now]: http://i.imgur.com/6cMbHOC.png
+
+[license]: http://showalicense.com/?fullname=Ionic%C4%83%20Biz%C4%83u%20%3Cbizauionica%40gmail.com%3E%20(http%3A%2F%2Fionicabizau.net)&year=2013#license-mit
+[website]: http://ionicabizau.net
+[contributing]: /CONTRIBUTING.md
+[docs]: /DOCUMENTATION.md
