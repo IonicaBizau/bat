@@ -1,34 +1,5 @@
-# C++ objects and libs
-
-*.slo
-*.lo
-*.o
-*.a
-*.la
-*.lai
-*.so
-*.dll
-*.dylib
-
-# Qt-es
-
-*.pro.user
-*.pro.user.*
-moc_*.cpp
-qrc_*.cpp
-Makefile
-*-build-*
-
-# temp files
 *.swp
+*.swo
 *~
-.DS_Store
-
-# build directory
-build-*-Debug/
-
-# compiling from compile.sh
-source/bat
-source/Bat
-source/main.moc
-source/ui_mainwindow.h
+*.log
+node_modules
