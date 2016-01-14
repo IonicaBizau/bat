@@ -1,6 +1,6 @@
-# [![BAT - Build Awesome Tools For Desktop using WEB Technologies](/resources/header.png)](http://ionicabizau.github.io/bat/) [![Support this project][donate-now]][paypal-donations]
+# [![BAT - Build Awesome Tools For Desktop using WEB Technologies](/resources/header.png)](http://ionicabizau.github.io/bat/) [![PayPal](https://img.shields.io/badge/%24-paypal-f39c12.svg)][paypal-donations] [![Version](https://img.shields.io/npm/v/bat.svg)](https://www.npmjs.com/package/bat) [![Downloads](https://img.shields.io/npm/dt/bat.svg)](https://www.npmjs.com/package/bat) [![Get help on Codementor](https://cdn.codementor.io/badges/get_help_github.svg)](https://www.codementor.io/johnnyb?utm_source=github&utm_medium=button&utm_term=johnnyb&utm_campaign=github)
 
-A tiny tool for building native desktop applications using WEB technologies.
+> A tiny tool for building native desktop applications using WEB technologies.
 
 ## Installation
 ### Linux
