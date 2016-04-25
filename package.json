@@ -2,7 +2,7 @@
   "name": "bat",
   "version": "1.0.0",
   "description": "A tiny tool for building native desktop applications using WEB technologies.",
-  "main": "index.js",
+  "main": "lib/index.js",
   "directories": {
     "example": "examples"
   },
@@ -226,5 +226,16 @@
         "</table>"
       ]
     ]
-  }
+  },
+  "files": [
+    "bin/",
+    "app/",
+    "lib/",
+    "dist/",
+    "src/",
+    "resources/",
+    "menu/",
+    "cli.js",
+    "index.js"
+  ]
 }
