@@ -8,7 +8,9 @@
 > A tiny tool for building native desktop applications using WEB technologies.
 
 ## Installation
+
 ### Linux
+
 
 You can compile it from source, using the scripts or, just download the latest binary using the following commands:
 
@@ -18,7 +20,9 @@ $ wget https://github.com/IonicaBizau/bat/raw/master/dists/deb/64bit/dev-release
 # And install it
 $ sudo dpkg -i dev-release.deb
 ```
+
 ### Mac OS X
+
 
 You can just download the latest binary package using the following commands:
 
@@ -31,17 +35,21 @@ $ sudo curl https://github.com/IonicaBizau/bat/raw/master/dists/osx/Bat -o /usr/
 $ sudo wget -O /usr/bin/bat https://github.com/IonicaBizau/bat/raw/master/dists/osx/Bat
 ```
 
+
 If you prefer to compile it from source, execute the following command(inside `source` directory) before running the provided scripts:
 
 ```sh
 # Add CONFIG -= app_bundle into Bat.pro file
 $ echo "CONFIG -= app_bundle" >> Bat.pro
 ```
+
 ### Windows
+
 
 There are no binaries available for Windows. The application needs to be compiled on Windows. Contributions are welcome! :smile:
 
 ## Help
+
 ```sh
 $ bat --help
 Usage: bat [options]
@@ -61,11 +69,14 @@ Options:
                                       the behind of all windows.
   --debug                             Starts BAT in the debug mode.
 ```
+
 ## Demo
+
 
 ![Demo](/resources/demo.png)
 
 ## JavaScript API
+
 
 The following functions are implemented for the Javascript API.
 
